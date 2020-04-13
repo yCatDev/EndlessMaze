@@ -15,7 +15,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj": {
+            "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj"
+          }
+        }
       }
     },
     "warningProperties": {

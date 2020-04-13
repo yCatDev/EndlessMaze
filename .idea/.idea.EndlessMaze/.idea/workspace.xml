@@ -1,34 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ec8d161-8152-48a8-8962-9dcd190a2dc6" name="Default Changelist" comment="" />
+    <list default="true" id="9ec8d161-8152-48a8-8962-9dcd190a2dc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Component.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/ConsoleEngine/ConsoleEngine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/GameGrid.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Gameobject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/ICellData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Scene.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/Engine.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/Engine.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/Engine.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/BaseEngine.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Engine.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/IEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/IEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/BaseEngine.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/BaseEngine.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/BaseEngine.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/BaseEngine.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/BaseEngine.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/BaseEngine.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/BaseEngine.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/BaseEngine.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/Debug/netcoreapp3.1/BaseEngine.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/BaseEngine.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/Debug/netcoreapp3.1/BaseEngine.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/BaseEngine.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/Debug/netcoreapp3.1/BaseEngine.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/BaseEngine.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseEngine/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMaze.sln" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMaze.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.packagespec.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Engine/Gameobject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EngineBase/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/BaseEngine/IEngine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/IEngine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/Scene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Game/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/Component.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/GameGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/ICellData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/obj/Debug/netcoreapp3.1/BaseEngine.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Engine/ConsoleEngine/ConsoleEngine.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Game/Program.cs" />
         <option value="$PROJECT_DIR$/EngineBase/Program.cs" />
         <option value="$PROJECT_DIR$/BaseEngine/Class1.cs" />
+        <option value="$PROJECT_DIR$/BaseEngine/IEngine.cs" />
+        <option value="$PROJECT_DIR$/Game/Game/Cell.cs" />
+        <option value="$PROJECT_DIR$/Game/Game/GameGrid.cs" />
+        <option value="$PROJECT_DIR$/Engine/ICellData.cs" />
+        <option value="$PROJECT_DIR$/Game/Program.cs" />
+        <option value="$PROJECT_DIR$/Engine/Scene.cs" />
+        <option value="$PROJECT_DIR$/Engine/Component.cs" />
+        <option value="$PROJECT_DIR$/Engine/Gameobject.cs" />
+        <option value="$PROJECT_DIR$/Engine/ConsoleEngine/ConsoleEngine.cs" />
+        <option value="$PROJECT_DIR$/Engine/GameGrid.cs" />
+        <option value="$PROJECT_DIR$/Engine/IEngine.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1aUd8fvZnSwfARaXjBghhHBbo8U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -61,7 +122,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586793949016</updated>
-      <workItem from="1586793952196" duration="1162000" />
+      <workItem from="1586793952196" duration="5621000" />
     </task>
     <servers />
   </component>
@@ -70,10 +131,32 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size" timestamp="1586794973295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1586794973295" />
+    <state x="794" y="220" key="RiderGenerateDialog" timestamp="1586796158077">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="220" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586796158077" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586798796744">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586798796744" />
   </component>
 </project>
