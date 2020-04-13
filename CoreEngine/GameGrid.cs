@@ -6,6 +6,8 @@ namespace CoreEngine
     {
         private Cell[,] _cells;
 
+        public Cell this[int i1, int i2] => _cells[i1, i2];
+        
         public GameGrid(int w, int h)
         {
             _cells = new Cell[w,h];
@@ -13,6 +15,8 @@ namespace CoreEngine
 
         public Cell[] GetChangedCells()
             => _cells.Cast<Cell>().Where(x => x.IsUpdated).ToArray();
+        
+        
 
     }
 

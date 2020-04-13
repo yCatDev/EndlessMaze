@@ -1,11 +1,11 @@
-﻿using System;
+﻿﻿using System;
 using System.Linq;
 
 namespace CoreEngine
 {
     public class CoreEngine
     {
-        private GameGrid _grid;
+        internal GameGrid _grid;
         private Scene _currentScene;
         
         public CoreEngine(int w, int h)
@@ -17,19 +17,22 @@ namespace CoreEngine
         {
             while (true)
             {
+                OnRenderStart();
                 _currentScene.OnUpdate();
-                Update();
+                _currentScene.Update();
                 Render();
+                OnRenderEnd();
             }
+        }
+
+        public void LoadScene(Scene scene)
+        {
+            _currentScene?.OnUnload();
+            _currentScene = scene;
+            _currentScene.OnStart();
         }
         
-        private void Update()
-        {
-            foreach (var entity in _currentScene.Entities)
-            {
-                entity.Update();
-            }
-        }
+        
         
         private void Render()
         {
@@ -39,11 +42,19 @@ namespace CoreEngine
             }
         }
 
+        public virtual void OnRenderStart()
+        {
+            
+        }
+        
         public virtual void OnRender(CellData cellData)
         {
             
         }
-
+        public virtual void OnRenderEnd()
+        {
+            
+        }
         public virtual void OnUpdate()
         {
             

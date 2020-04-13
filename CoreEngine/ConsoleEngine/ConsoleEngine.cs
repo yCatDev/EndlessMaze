@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using CoreEngine;
 
 namespace ConsoleEngineSpace
@@ -8,6 +8,13 @@ namespace ConsoleEngineSpace
         public ConsoleEngine() : base(Console.BufferWidth, Console.BufferHeight)
         {
             
+        }
+
+        public override void OnRender(CellData cellData)
+        {
+            base.OnRender(cellData);
+            Console.SetCursorPosition(cellData.X, cellData.Y);
+            Console.WriteLine(cellData.RenderObject);
         }
     }
 }

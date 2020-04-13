@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ec8d161-8152-48a8-8962-9dcd190a2dc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CoreEngine/ConsoleEngine/ConsoleEngine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoreEngine/Core.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoreEngine/CoreEngine.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoreEngine/Entity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoreEngine/GameGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CoreEngine/Scene.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/obj/Engine.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/GameObjects/Dummy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game/Scenes/GameTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/discord.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EndlessMaze.sln" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMaze.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoreEngine/ConsoleEngine/ConsoleEngine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoreEngine/Core.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoreEngine/Entity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoreEngine/GameGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoreEngine/GameGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoreEngine/Scene.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Game/GameTest.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +23,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Game/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoreEngine/Core.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/34BD0CE0-8D6E-4D26-91D4-66748931FB89/c2/89ec02eb/ConsoleColor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Game/Game/GameTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Game/GameObjects/Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Game/Scenes/GameTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/66/Char.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoreEngine/ConsoleEngine/ConsoleEngine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoreEngine/Scene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CoreEngine/Entity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoreEngine/GameGrid.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -54,7 +40,6 @@
         <option value="$PROJECT_DIR$/Engine/Component.cs" />
         <option value="$PROJECT_DIR$/Engine/GameGrid.cs" />
         <option value="$PROJECT_DIR$/Engine/IEngine.cs" />
-        <option value="$PROJECT_DIR$/Game/Game/GameTest.cs" />
         <option value="$PROJECT_DIR$/Engine/Scene.cs" />
         <option value="$PROJECT_DIR$/Engine/Engine.cs" />
         <option value="$PROJECT_DIR$/Engine/ICellData.cs" />
@@ -66,12 +51,15 @@
         <option value="$PROJECT_DIR$/Core/Draweble.cs" />
         <option value="$PROJECT_DIR$/Core/Scene.cs" />
         <option value="$PROJECT_DIR$/CoreEngine/Class1.cs" />
-        <option value="$PROJECT_DIR$/CoreEngine/GameGrid.cs" />
-        <option value="$PROJECT_DIR$/CoreEngine/ConsoleEngine/ConsoleEngine.cs" />
         <option value="$PROJECT_DIR$/Game/Program.cs" />
-        <option value="$PROJECT_DIR$/CoreEngine/Entity.cs" />
-        <option value="$PROJECT_DIR$/CoreEngine/Scene.cs" />
+        <option value="$PROJECT_DIR$/Game/Game/GameTest.cs" />
+        <option value="$PROJECT_DIR$/CoreEngine/Id.cs" />
+        <option value="$PROJECT_DIR$/CoreEngine/ConsoleEngine/ConsoleEngine.cs" />
+        <option value="$PROJECT_DIR$/Game/GameObjects/Dummy.cs" />
         <option value="$PROJECT_DIR$/CoreEngine/Core.cs" />
+        <option value="$PROJECT_DIR$/CoreEngine/Scene.cs" />
+        <option value="$PROJECT_DIR$/CoreEngine/GameGrid.cs" />
+        <option value="$PROJECT_DIR$/CoreEngine/Entity.cs" />
       </list>
     </option>
   </component>
@@ -120,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586793949016</updated>
-      <workItem from="1586793952196" duration="17026000" />
+      <workItem from="1586793952196" duration="20060000" />
     </task>
     <servers />
   </component>
@@ -148,10 +136,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1586812523309" />
-    <state x="794" y="220" key="RiderGenerateDialog" timestamp="1586803944917">
+    <state x="794" y="220" key="RiderGenerateDialog" timestamp="1586814518629">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="220" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586803944917" />
+    <state x="794" y="220" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586814518629" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586806323174">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
