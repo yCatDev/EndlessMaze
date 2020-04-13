@@ -10,23 +10,24 @@ namespace Engine.ConsoleEngine
             
         }
         
-        
-
         public override void OnInit()
         {
             Console.Clear();
         }
-        
 
-        public override void OnRender(Cell renderCell)
+        public override void OnRender(RendererData renderCell)
         {
-            
+            throw new NotImplementedException();
         }
+
+        
     }
-    public class CellData: ICellData
+    public class ConsoleRendererData: RendererData
     {
-        public ConsoleColor Foreground;
-        public ConsoleColor SymbolColor;
-        public Char Element;
+        public ConsoleColor Foreground = ConsoleColor.Black;
+        public ConsoleColor SymbolColor = ConsoleColor.White;
+        public Char Element = ' ';
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }

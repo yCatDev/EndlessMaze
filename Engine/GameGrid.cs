@@ -12,7 +12,7 @@ namespace Engine
         {
             _grid = new Cell[w,h];
         }
-
+        
         public Cell[] SelectCells() => _grid.Cast<Cell>().Where(x => x.Changed).ToArray();
 
     }
@@ -20,8 +20,8 @@ namespace Engine
     {
         public bool Changed = true;
 
-        private ICellData _cellData;
-        public ICellData CellData
+        private RendererData _cellData;
+        public RendererData CellData
         {
             get { 
                 Changed = true;

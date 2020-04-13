@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Engine
 {
     public abstract class Engine
     {
-
-        protected GameGrid Grid;
+        
         protected List<GameObject> GameObjects;
         private Scene _currentScene;
         
@@ -27,7 +27,10 @@ namespace Engine
 
         public void RunScene(Scene scene)
         {
+            if (_currentScene!=null)
+                scene.Unload();
             _currentScene = scene;
+            GameObjects = _currentScene.GetGameObjectList;
             _currentScene.Init();
         }
 
@@ -42,14 +45,19 @@ namespace Engine
 
         private void Render()
         {
-            foreach (var cell in Grid.SelectCells())
+            foreach (var cell in GameObjects.Select(x=>x.RendererData))
             {
                 OnRender(cell);
             }
         }
         
         public abstract void OnInit();
-        public abstract void OnRender(Cell renderCell);
+        public abstract void OnRender(RendererData renderCell);
 
+    }
+
+    public class Point
+    {
+        public int X, Y;
     }
 }
