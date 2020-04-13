@@ -2,6 +2,16 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "CoreEngine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/CoreEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoreEngine.dll": {}
+        }
+      },
       "Engine/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -15,6 +25,11 @@
     }
   },
   "libraries": {
+    "CoreEngine/1.0.0": {
+      "type": "project",
+      "path": "../CoreEngine/CoreEngine.csproj",
+      "msbuildProject": "../CoreEngine/CoreEngine.csproj"
+    },
     "Engine/1.0.0": {
       "type": "project",
       "path": "../Engine/Engine.csproj",
@@ -23,6 +38,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "CoreEngine >= 1.0.0",
       "Engine >= 1.0.0"
     ]
   },
@@ -52,6 +68,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\CoreEngine.csproj": {
+              "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\CoreEngine.csproj"
+            },
             "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj": {
               "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj"
             }

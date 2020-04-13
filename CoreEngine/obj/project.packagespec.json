@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Game\\Game.csproj",
-    "projectName": "Game",
-    "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Game\\Game.csproj",
-    "outputPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Game\\obj\\",
+    "projectUniqueName": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\CoreEngine.csproj",
+    "projectName": "CoreEngine",
+    "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\CoreEngine.csproj",
+    "outputPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -15,14 +15,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {
-          "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\CoreEngine.csproj": {
-            "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\CoreEngine\\CoreEngine.csproj"
-          },
-          "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj": {
-            "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj"
-          }
-        }
+        "projectReferences": {}
       }
     },
     "warningProperties": {
