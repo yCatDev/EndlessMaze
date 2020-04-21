@@ -12,13 +12,14 @@ namespace AbstractEngine.Core
         private Area _currentArea, _tmpArea;
         private Stopwatch _delta;
 
-        public AbstractCore(int w, int h)
+        protected AbstractCore(int w, int h, string title)
         {
-            _grid = new GameGrid(w,h);
+            _grid = new GameGrid(w,h, this);
             _delta = new Stopwatch();
+            
+            InputManger.RegisterInput();
         }
 
-        
         public void LoadArea(Area area) => _tmpArea = area;
 
         public void Run()
@@ -54,10 +55,25 @@ namespace AbstractEngine.Core
                 OnRenderObject(cell, new Point(i0,i1));
             }
         }
-
-        public abstract void OnRenderStart();
-        public abstract void OnRenderObject(Cell cell, Point cellPos);
-        public abstract void OnRenderEnd();
-
+        public void DrawText(string text, Point position)
+        {
+            var cs = text.ToCharArray();
+            Point nextPos = position;
+            for (var i = 0; i < cs.Length; i++)
+            {
+                var c = cs[i];
+                nextPos.X++;
+                OnTextCharDraw(c,nextPos);
+            }
+        }
+        
+        protected abstract void OnRenderStart();
+        protected abstract void OnRenderObject(Cell cell, Point cellPos);
+        protected abstract void OnRenderEnd();
+        protected abstract void OnTextCharDraw(char c, Point cellPos);
+        
+        
+        
+        
     }
 }

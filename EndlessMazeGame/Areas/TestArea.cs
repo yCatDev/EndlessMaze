@@ -12,7 +12,8 @@ namespace EndlessMazeGame.Areas
 
         public override void Init()
         {
-            var sharp = new TestSharpEntity("test", new Point(0,0), this);
+            Grid.Core.DrawText("Hello world", Point.Zero);
+            var sharp = new TestSharpEntity("test", new Point(0,1), this);
         }
 
         public override void Update()

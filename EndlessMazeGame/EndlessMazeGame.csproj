@@ -8,6 +8,7 @@
     <ItemGroup>
       <ProjectReference Include="..\AbstractEngine\AbstractEngine.csproj" />
       <ProjectReference Include="..\ConsoleEngine\ConsoleEngine.csproj" />
+      <ProjectReference Include="..\SFMLEngine\SFMLEngine.csproj" />
     </ItemGroup>
 
 </Project>

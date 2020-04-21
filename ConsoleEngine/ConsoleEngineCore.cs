@@ -7,17 +7,20 @@ namespace ConsoleEngine
 {
     public class ConsoleEngine: AbstractCore
     {
-        public ConsoleEngine() : base(10, 10)
+        public ConsoleEngine(int w, int h, string title) : base(w, h, title)
         {
             Console.CursorVisible = false;
+            Console.Title = title;
         }
 
-        public override void OnRenderStart()
+   
+
+        protected override void OnRenderStart()
         {
            
         }
 
-        public override void OnRenderObject(Cell cell, Point cellPos)
+        protected override void OnRenderObject(Cell cell, Point cellPos)
         {
             Console.SetCursorPosition(cellPos.X, cellPos.Y);
             //Console.WriteLine(cellPos.ToString());
@@ -29,9 +32,14 @@ namespace ConsoleEngine
             }
         }
 
-        public override void OnRenderEnd()
+        protected override void OnRenderEnd()
         {
            
+        }
+
+        protected override void OnTextCharDraw(char c, Point cellPos)
+        {
+            GameGrid[cellPos] = new Cell(new RenderObject(c));
         }
     }
 }
