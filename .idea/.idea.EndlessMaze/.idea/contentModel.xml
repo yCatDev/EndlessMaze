@@ -17,6 +17,7 @@
           <e p="Interfaces" t="Include">
             <e p="IAbstractEngine.cs" t="Include" />
           </e>
+          <e p="Resources.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -26,7 +27,37 @@
           </e>
         </e>
       </e>
+      <e p="ConsoleEngine" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConsoleEngine.cs" t="Include" />
+        <e p="ConsoleEngine.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ConsoleEngine.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="EndlessMaze.sln" t="IncludeFlat" />
+      <e p="EndlessMazeGame" t="IncludeRecursive">
+        <e p="Areas" t="Include">
+          <e p="TestArea.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EndlessMazeGame.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="TestSharpEntity.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EndlessMazeGame.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "EndlessMazeGame/1.0.0": {
+        "dependencies": {
+          "AbstractEngine": "1.0.0",
+          "ConsoleEngine": "1.0.0"
+        },
+        "runtime": {
+          "EndlessMazeGame.dll": {}
+        }
+      },
+      "AbstractEngine/1.0.0": {
+        "runtime": {
+          "AbstractEngine.dll": {}
+        }
+      },
+      "ConsoleEngine/1.0.0": {
+        "dependencies": {
+          "AbstractEngine": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleEngine.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EndlessMazeGame/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AbstractEngine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsoleEngine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
