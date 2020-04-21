@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{C97D2F26-49E2-4CE9-B4F4-0DE3328F98E7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreEngine", "CoreEngine\CoreEngine.csproj", "{A261A153-A7AC-446A-8977-51C4122237E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractEngine", "AbstractEngine\AbstractEngine.csproj", "{97419D4E-F275-43BD-9948-7F083C2D214A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C97D2F26-49E2-4CE9-B4F4-0DE3328F98E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C97D2F26-49E2-4CE9-B4F4-0DE3328F98E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C97D2F26-49E2-4CE9-B4F4-0DE3328F98E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C97D2F26-49E2-4CE9-B4F4-0DE3328F98E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A261A153-A7AC-446A-8977-51C4122237E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A261A153-A7AC-446A-8977-51C4122237E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A261A153-A7AC-446A-8977-51C4122237E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A261A153-A7AC-446A-8977-51C4122237E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97419D4E-F275-43BD-9948-7F083C2D214A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97419D4E-F275-43BD-9948-7F083C2D214A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97419D4E-F275-43BD-9948-7F083C2D214A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97419D4E-F275-43BD-9948-7F083C2D214A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

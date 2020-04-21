@@ -4,37 +4,24 @@
     <e p="C:\Users\yCatDev\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\yCatDev\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_EndlessMaze.-1692255246.00" t="ExcludeRecursive" />
     <e p="E:\Universitet\EndlessMaze\EndlessMaze" t="IncludeFlat">
-      <e p="CoreEngine" t="IncludeRecursive">
+      <e p="AbstractEngine" t="IncludeRecursive">
+        <e p="AbstractEngine.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CoreEngine.csproj" t="IncludeRecursive" />
-        <e p="GameGrid.cs" t="Include" />
+        <e p="Core" t="Include">
+          <e p="Core.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="IAbstractEngine.cs" t="Include" />
+          </e>
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="CoreEngine.AssemblyInfo.cs" t="Include" />
+              <e p="AbstractEngine.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
       </e>
       <e p="EndlessMaze.sln" t="IncludeFlat" />
-      <e p="Game" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="Game.csproj" t="IncludeRecursive" />
-        <e p="GameObjects" t="Include">
-          <e p="Dummy.cs" t="Include" />
-        </e>
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="Game.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Program.cs" t="Include" />
-        <e p="Scenes" t="Include">
-          <e p="GameTest.cs" t="Include" />
-        </e>
-      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

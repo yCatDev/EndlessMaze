@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj",
-      "projectName": "Engine",
-      "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\Engine.csproj",
+      "projectUniqueName": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\AbstractEngine\\AbstractEngine.csproj",
+      "projectName": "AbstractEngine",
+      "projectPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\AbstractEngine\\AbstractEngine.csproj",
       "packagesPath": "C:\\Users\\yCatDev\\.nuget\\packages\\",
-      "outputPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\Engine\\obj\\",
+      "outputPath": "E:\\Universitet\\EndlessMaze\\EndlessMaze\\AbstractEngine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yCatDev\\AppData\\Roaming\\NuGet\\NuGet.Config",
