@@ -14,7 +14,7 @@ namespace ConsoleEngine
 
         public override void OnRenderStart()
         {
-            Console.Clear();
+           
         }
 
         public override void OnRenderObject(Cell cell, Point cellPos)
@@ -31,7 +31,7 @@ namespace ConsoleEngine
 
         public override void OnRenderEnd()
         {
-            
+           
         }
     }
 }

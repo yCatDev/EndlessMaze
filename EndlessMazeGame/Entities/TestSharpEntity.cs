@@ -11,14 +11,24 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
-            if (Console.ReadKey(true).Key == ConsoleKey.S)
-                SetPosition(_gridPosition.X, _gridPosition.Y+1);
-            if (Console.ReadKey(true).Key == ConsoleKey.W)
-                SetPosition(_gridPosition.X, _gridPosition.Y-1);
-            if (Console.ReadKey(true).Key == ConsoleKey.A)
-                SetPosition(_gridPosition.X-1, _gridPosition.Y);
-            if (Console.ReadKey(true).Key == ConsoleKey.D)
-                SetPosition(_gridPosition.X+1, _gridPosition.Y);
+            if (!Console.KeyAvailable) return;
+            var key = Console.ReadKey(true);
+            switch (key.Key)
+            {
+                case ConsoleKey.S:
+                    SetPosition(_gridPosition.X, _gridPosition.Y + 1);
+                    break;
+                case ConsoleKey.W:
+                    SetPosition(_gridPosition.X, _gridPosition.Y - 1);
+                    break;
+                case ConsoleKey.A:
+                    SetPosition(_gridPosition.X - 1, _gridPosition.Y);
+                    break;
+                case ConsoleKey.D:
+                    SetPosition(_gridPosition.X + 1, _gridPosition.Y);
+                    break;
+                
+            }
         }
     }
 }

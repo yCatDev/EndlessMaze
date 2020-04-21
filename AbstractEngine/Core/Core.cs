@@ -32,7 +32,7 @@ namespace AbstractEngine.Core
                     _tmpArea = null;
                 }
 
-                if (!(_delta.Elapsed.TotalSeconds > 1f / 25)) continue;
+                if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
                 _currentArea.Update();
                 _currentArea.UpdateEntities();
                 OnRenderStart();
