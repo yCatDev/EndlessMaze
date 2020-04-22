@@ -398,13 +398,13 @@ namespace AbstractEngine.Core.Base
         {
             
             _globalKeyboardHook = new GlobalKeyboardHook();
-            Console.WriteLine("reged");
+           
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
         }
 
         private static void OnKeyPressed(object? sender, GlobalKeyboardHookEventArgs e)
         {
-            Console.WriteLine(e.KeyboardData.Key);
+            
             if (e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyDown)
             {
                 if (IsNewKey)
@@ -480,23 +480,24 @@ namespace AbstractEngine.Core.Base
         {
             _windowsHookHandle = IntPtr.Zero;
             _user32LibraryHandle = IntPtr.Zero;
-            _hookProc = LowLevelKeyboardProc; // we must keep alive _hookProc, because GC is not aware about SetWindowsHookEx behaviour.
+            _hookProc = LowLevelKeyboardProc;
+            _user32LibraryHandle = LoadLibrary("User32"); // we must keep alive _hookProc, because GC is not aware about SetWindowsHookEx behaviour.
+            
 
-            _user32LibraryHandle = LoadLibrary("User32");
+            
             if (_user32LibraryHandle == IntPtr.Zero)
             {
                 int errorCode = Marshal.GetLastWin32Error();
                 throw new Win32Exception(errorCode, $"Failed to load library 'User32.dll'. Error {errorCode}: {new Win32Exception(Marshal.GetLastWin32Error()).Message}.");
             }
 
-
-
-            _windowsHookHandle = SetWindowsHookEx(WH_KEYBOARD_LL, _hookProc, _user32LibraryHandle, 0);
+            _windowsHookHandle = SetWindowsHookEx(WH_KEYBOARD_LL, _hookProc, _user32LibraryHandle,0);
             if (_windowsHookHandle == IntPtr.Zero)
             {
                 int errorCode = Marshal.GetLastWin32Error();
                 throw new Win32Exception(errorCode, $"Failed to adjust keyboard hooks for '{Process.GetCurrentProcess().ProcessName}'. Error {errorCode}: {new Win32Exception(Marshal.GetLastWin32Error()).Message}.");
             }
+           
         }
 
         protected virtual void Dispose(bool disposing)
@@ -536,12 +537,14 @@ namespace AbstractEngine.Core.Base
 
         public void Dispose()
         {
+            
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
         private IntPtr _windowsHookHandle;
         private IntPtr _user32LibraryHandle;
+        private IntPtr _callNext;
         private HookProc _hookProc;
 
         delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
@@ -625,12 +628,13 @@ namespace AbstractEngine.Core.Base
             SysKeyDown = 0x0104,
             SysKeyUp = 0x0105
         }
-        
 
+        
         public IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam)
         {
+           
             bool fEatKeyStroke = false;
-
+            
             var wparamTyped = wParam.ToInt32();
             
             if (Enum.IsDefined(typeof(KeyboardState), wparamTyped))
@@ -646,7 +650,11 @@ namespace AbstractEngine.Core.Base
                 fEatKeyStroke = eventArguments.Handled;
             }
 
-            return fEatKeyStroke ? (IntPtr)1 : CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
+            if (fEatKeyStroke)
+                return (IntPtr) 1;
+             
+            _callNext= CallNextHookEx(_windowsHookHandle, nCode, wParam, lParam);
+            return _callNext;
         }
     }
 }

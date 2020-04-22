@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using AbstractEngine.Core;
 using AbstractEngine.Core.Base;
 
@@ -17,7 +18,7 @@ namespace ConsoleEngine
 
         protected override void OnRenderStart()
         {
-           
+            Console.CursorVisible = false;
         }
 
         protected override void OnRenderObject(Cell cell, Point cellPos)
@@ -34,7 +35,9 @@ namespace ConsoleEngine
 
         protected override void OnRenderEnd()
         {
-           
+            Thread waitThread = new Thread(() =>Thread.Sleep(100));
+            waitThread.Start();                    
+            waitThread.Join();
         }
 
         protected override void OnTextCharDraw(char c, Point cellPos)

@@ -6,7 +6,7 @@ namespace EndlessMazeGame.Areas
 {
     public class TestArea: Area
     {
-        public TestArea(GameGrid gameGrid, Resources resources) : base(gameGrid, resources)
+        public TestArea(GameGrid gameGrid) : base(gameGrid)
         {
         }
 

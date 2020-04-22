@@ -7,16 +7,17 @@ namespace AbstractEngine.Core
     public abstract class AbstractCore
     {
         private GameGrid _grid;
-
+        
         public GameGrid GameGrid => _grid;
         private Area _currentArea, _tmpArea;
         private Stopwatch _delta;
+        public Resources Resources;
 
         protected AbstractCore(int w, int h, string title)
         {
             _grid = new GameGrid(w,h, this);
             _delta = new Stopwatch();
-            
+            Resources = new Resources();
             InputManger.RegisterInput();
         }
 
@@ -47,7 +48,7 @@ namespace AbstractEngine.Core
         private void Render()
         {
             var all = _grid.SelectAll();
-            //Console.WriteLine($"{all.GetLength(0)} {all.GetLength(1)}");
+            
             for (var i0 = 0; i0 < all.GetLength(0); i0++)
             for (var i1 = 0; i1 < all.GetLength(1); i1++)
             {

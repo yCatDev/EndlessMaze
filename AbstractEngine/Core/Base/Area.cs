@@ -5,13 +5,12 @@ namespace AbstractEngine.Core.Base
     public abstract class Area
     {
         private List<Entity> _entities;
-        private Resources _resources;
         public GameGrid Grid { get; }
-        public Area(GameGrid gameGrid, Resources resources)
+        public Area(GameGrid gameGrid)
         {
             _entities = new List<Entity>();
             Grid = gameGrid;
-            _resources = resources;
+            
             Init();
         }
 
@@ -20,7 +19,7 @@ namespace AbstractEngine.Core.Base
         public abstract void Update();
         public void UpdateEntities() => _entities.ForEach(x => x.Update());
        
-        public RenderObject GetResource(string name) => _resources[name];
+        public RenderObject GetResource(string name) => Grid.Core.Resources[name];
 
         
         
