@@ -15,11 +15,11 @@ namespace ConsoleEngine
             Console.SetWindowSize(w,h);
         }
 
-   
+        
 
         protected override void OnRenderStart()
         {
-            Console.CursorVisible = false;
+            Console.CursorVisible = true;
         }
 
         protected override void OnRenderObject(Cell cell, Point cellPos)

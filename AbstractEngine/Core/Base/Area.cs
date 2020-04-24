@@ -6,11 +6,12 @@ namespace AbstractEngine.Core.Base
     {
         private List<Entity> _entities;
         public GameGrid Grid { get; }
-        public Area(GameGrid gameGrid)
+        public Area(GameGrid gameGrid, bool clearScreen = true)
         {
             _entities = new List<Entity>();
             Grid = gameGrid;
-            
+            if (clearScreen)
+                Grid.Clear();
             Init();
         }
 

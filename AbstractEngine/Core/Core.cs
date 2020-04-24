@@ -24,29 +24,48 @@ namespace AbstractEngine.Core
             WindowHeight = h;
             WindowWidth = w;
             WindowTitle = title;
+            _tmpArea = null;
         }
 
-        public void LoadArea(Area area) => _tmpArea = area;
+        public void LoadArea(Area area)
+        {
+           
+            _tmpArea = area;
+        }
+
+
+
 
         public void Run()    
         {
             _delta.Start();
             while (true)
             {
-                if (_tmpArea != null)
+                try
                 {
-                    _currentArea = _tmpArea;
-                    _tmpArea = null;
-                }
+                    if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
+                    _currentArea?.Update();
+                    _currentArea?.UpdateEntities();
+                    OnRenderStart();
+                    Render();
+                    OnRenderEnd();
+                    if (_tmpArea != null)
+                    {
 
-                if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
-                _currentArea?.Update();
-                _currentArea?.UpdateEntities();
-                OnRenderStart();
-                Render();
-                OnRenderEnd();
-               
-                _delta.Restart();
+                        _currentArea = _tmpArea;
+                        _tmpArea = null;
+                    }
+
+                    _delta.Restart();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.StackTrace);
+                    Console.WriteLine(e.Data);
+                    Console.ReadKey();
+                }
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using AbstractEngine.Core.Base;
+using EndlessMazeGame.Areas;
 
 namespace EndlessMazeGame.Entities
 {
@@ -7,9 +8,10 @@ namespace EndlessMazeGame.Entities
     {
         private Point _menuPlay, _menuContinue, _menuExit;
         private int _index = 0;
-        public MenuPoint(string name, Point startPos, string resourceName, Area area) : base(name, startPos, resourceName, area)
+
+        public MenuPoint(string name, Point startPos, string resourceName, Area area) : base(name, startPos, area)
         {
-            
+            SetNewGraphics(resourceName);
         }
 
         public void SetMenuPoints(Point play, Point @continue, Point exit)
@@ -46,7 +48,7 @@ namespace EndlessMazeGame.Entities
                 switch (_index)
                 {
                     case 0:
-                        SetPosition(_menuPlay);
+                        _ownerArea.Grid.Core.LoadArea(new GameArea(_ownerArea.Grid.Core.GameGrid));
                         break;
                     case 1:
                         SetPosition(_menuContinue);

@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b7985ce-9503-462b-90d2-71de21245993" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EndlessMazeGame/Areas/GameArea.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EndlessMazeGame/Entities/MazeBlock.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EndlessMazeGame/Entities/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EndlessMazeGame/Maze/Maze.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EndlessMazeGame/Maze/MazeCell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
@@ -17,8 +25,9 @@
       <change beforePath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Areas/TestArea.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Entities/TestSharpEntity.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" afterDir="false" />
@@ -59,17 +68,20 @@
     <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Core.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Entities/TestSharpEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/05D63644-173A-4317-A736-6897C774F7B3/D/Window.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Areas/TestArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/05D63644-173A-4317-A736-6897C774F7B3/0/Event.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Base/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Areas/GameArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Maze/Maze.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/2E/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/2/CircleShape.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Maze/MazeCell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/D/Shape.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Entities/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Entities/MazeBlock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/0/Drawable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Interfaces/IAbstractEngine.cs" root0="FORCE_HIGHLIGHTING" />
@@ -90,16 +102,22 @@
         <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/TestSharpEntity.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/InputManager.cs" />
         <option value="$PROJECT_DIR$/EndlessMazeGame/Areas/TestArea.cs" />
-        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Other.cs" />
-        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" />
-        <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" />
-        <option value="$PROJECT_DIR$/EndlessMazeGame/Program.cs" />
-        <option value="$PROJECT_DIR$/ConsoleEngine/ConsoleEngineCore.cs" />
-        <option value="$PROJECT_DIR$/SFMLEngine/SFMLEngineCore.cs" />
-        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" />
-        <option value="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" />
         <option value="$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Areas/GameScene.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Maze/MazeCell.cs" />
+        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" />
+        <option value="$PROJECT_DIR$/SFMLEngine/SFMLEngineCore.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/MazeBlock.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Program.cs" />
+        <option value="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" />
+        <option value="$PROJECT_DIR$/ConsoleEngine/ConsoleEngineCore.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Areas/GameArea.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Maze/Maze.cs" />
+        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" />
+        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/Player.cs" />
       </list>
     </option>
   </component>
@@ -148,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587426004342</updated>
       <workItem from="1587426036696" duration="35405000" />
-      <workItem from="1587589729736" duration="25100000" />
+      <workItem from="1587589729736" duration="32159000" />
     </task>
     <servers />
   </component>
@@ -174,26 +192,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587596235132">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587695158598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587596235132" />
-    <state width="1877" height="299" key="GridCell.Tab.0.bottom" timestamp="1587691204765">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587695158598" />
+    <state width="1877" height="299" key="GridCell.Tab.0.bottom" timestamp="1587698587997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204765" />
-    <state width="1877" height="299" key="GridCell.Tab.0.center" timestamp="1587691204765">
+    <state width="1877" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587698587997" />
+    <state width="1877" height="299" key="GridCell.Tab.0.center" timestamp="1587698587997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204765" />
-    <state width="1877" height="299" key="GridCell.Tab.0.left" timestamp="1587691204764">
+    <state width="1877" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587698587997" />
+    <state width="1877" height="299" key="GridCell.Tab.0.left" timestamp="1587698587997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204764" />
-    <state width="1877" height="299" key="GridCell.Tab.0.right" timestamp="1587691204765">
+    <state width="1877" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587698587997" />
+    <state width="1877" height="299" key="GridCell.Tab.0.right" timestamp="1587698587997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204765" />
+    <state width="1877" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587698587997" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1587594629423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -262,10 +280,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1587443682364" />
-    <state x="794" y="235" key="RiderGenerateDialog" timestamp="1587688721701">
+    <state x="794" y="235" key="RiderGenerateDialog" timestamp="1587694173687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="235" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587688721701" />
+    <state x="794" y="235" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587694173687" />
     <state x="638" y="252" width="644" height="536" key="find.popup" timestamp="1587676051865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -274,10 +292,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587430686162" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587689444235">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587694955482">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587689444235" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587694955482" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

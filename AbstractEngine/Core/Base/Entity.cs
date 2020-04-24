@@ -5,20 +5,29 @@ namespace AbstractEngine.Core.Base
     public abstract class Entity
     {
         public string Name;
-        protected Point _gridPosition;
+
+        private Point _gridPosition;
         protected Area _ownerArea;
 
-        public Entity(string name, Point startPos, string resourceName, Area area)
+        public Entity(string name, Point startPos, Area area)
         {
             Name = name;
             _gridPosition = startPos;
             _ownerArea = area;
             
-            _ownerArea.Grid[_gridPosition] = new Cell(_ownerArea.GetResource(resourceName));
-            
+            _ownerArea.Grid[_gridPosition].SetName(Name);
             _ownerArea.RegEntity(this);
         }
 
+        public void SetNewGraphics(string resourceName, Color color = Color.White)
+        {
+            _ownerArea.Grid[_gridPosition] = new Cell(new CellData(){
+                RenderObject = _ownerArea.GetResource(resourceName),
+                Color = color,
+                EntityName = Name
+            });
+        }
+        
         public void SetPosition(Point position) => SetPosition(position.X, position.Y);
         public void SetPosition(int x, int y)
         {
@@ -27,10 +36,12 @@ namespace AbstractEngine.Core.Base
             
             var data = _ownerArea.Grid[_gridPosition];
             _ownerArea.Grid.MakeCellEmpty(_gridPosition);
-            _ownerArea.Grid[x, y] = data;
+            _ownerArea.Grid[x, y] = new Cell(data);
             _gridPosition = new Point(x,y);
         }
 
+        public Point GetPosition() => new Point(_gridPosition.X, _gridPosition.Y);
+        
         public abstract void Update();
 
     }

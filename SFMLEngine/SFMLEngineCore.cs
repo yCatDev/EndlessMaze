@@ -17,7 +17,9 @@ namespace SFMLEngine
             _window = new RenderWindow(new VideoMode((uint) (w*_scaleFactor), (uint)(h*_scaleFactor)), title);
             
         }
-        
+
+
+  
 
         protected override void OnRenderStart()
         {
@@ -30,6 +32,7 @@ namespace SFMLEngine
             if (cell.GetRenderObject<Drawable>(out var obj))
             {
                 ((Transformable)obj).Position = new Vector2f(cellPos.X*_scaleFactor, cellPos.Y*_scaleFactor);
+                
                 _window.Draw(obj);
             }
             else

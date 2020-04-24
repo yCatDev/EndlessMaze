@@ -35,7 +35,12 @@ namespace AbstractEngine.Core.Base
             Core = core;
             Width = w;
             Heigth = h;
-            Cells = new Cell[w, h];
+           Clear();
+        }
+
+        public void Clear()
+        {
+            Cells = new Cell[Width, Heigth];
             for (var i0 = 0; i0 < Cells.GetLength(0); i0++)
             for (var i1 = 0; i1 < Cells.GetLength(1); i1++)
             {
@@ -44,16 +49,23 @@ namespace AbstractEngine.Core.Base
         }
     }
 
-    public struct Cell
+    public class Cell
     {
         public bool Updated;
-        public string EntityName;
+       
         private CellData _data;
-
+        internal CellData Data => _data;
+        
+        public Cell(Cell cell)
+        {
+            Updated = cell.Updated;
+            _data = cell.Data;
+        }   
+        
         public Cell(RenderObject renderObject)
         {
             Updated = true;
-            EntityName = "";
+            _data.EntityName = "";
             _data = new CellData()
             {
                 RenderObject = renderObject
@@ -63,8 +75,20 @@ namespace AbstractEngine.Core.Base
         public Cell(CellData data)
         {
             Updated = true;
-            EntityName = "";
+            _data.EntityName = "";
             _data = data;
+        }
+
+        public Cell()
+        {
+            Updated = true;
+            
+            _data = new CellData()
+            {
+                RenderObject = null,
+                Color = Color.White,
+                EntityName = ""
+            };
         }
 
         public bool GetRenderObject<T>(out T obj)
@@ -92,7 +116,9 @@ namespace AbstractEngine.Core.Base
 
         public T GetColor<T>() where T: struct, Enum=> Enum.Parse<T>(_data.Color.ToString());
         
-        public void SetName(string name) => EntityName = name;
+        public void SetName(string name) => _data.EntityName = name;
+        public string GetName() => _data.EntityName ?? "";
+        public bool IsName(string name) => _data.EntityName == name;
     }
 
     public enum Color
@@ -118,6 +144,7 @@ namespace AbstractEngine.Core.Base
     public struct CellData
     {
         public RenderObject RenderObject;
+        public string EntityName;
         public Color Color;
     }
 

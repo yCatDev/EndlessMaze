@@ -35,6 +35,7 @@ namespace EndlessMazeGame
             }
             var menu = new MenuArea(_engine.GameGrid);//Create area
             _engine.LoadArea(menu);//Load area
+            
             _engine.Run();//Run game
         }
         
@@ -51,6 +52,7 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderV", '║');
                 
                 resources.RegisterResource("Player", '#');
+                resources.RegisterResource("Block", '█');
             }
         }
         

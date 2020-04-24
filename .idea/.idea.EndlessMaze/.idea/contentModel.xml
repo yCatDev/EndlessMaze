@@ -44,14 +44,19 @@
       <e p="EndlessMaze.sln" t="IncludeFlat" />
       <e p="EndlessMazeGame" t="IncludeRecursive">
         <e p="Areas" t="Include">
+          <e p="GameArea.cs" t="Include" />
           <e p="MenuArea.cs" t="Include" />
-          <e p="TestArea.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="EndlessMazeGame.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
+          <e p="MazeBlock.cs" t="Include" />
           <e p="MenuPoint.cs" t="Include" />
-          <e p="TestSharpEntity.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+        </e>
+        <e p="Maze" t="Include">
+          <e p="Maze.cs" t="Include" />
+          <e p="MazeCell.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
