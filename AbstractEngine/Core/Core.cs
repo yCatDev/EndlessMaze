@@ -61,7 +61,7 @@ namespace AbstractEngine.Core
                 OnRenderObject(cell, new Point(i0,i1));
             }
         }
-        public void DrawText(string text, Point position)
+        public void DrawText(string text, Point position, Color textColor = Color.White)
         {
             var cs = text.ToCharArray();
             Point nextPos = position;
@@ -69,24 +69,30 @@ namespace AbstractEngine.Core
             {
                 var c = cs[i];
                 nextPos.X++;
-                DrawPrimitive(new RenderObject(c),nextPos);
+                var d = new CellData()
+                {
+                    RenderObject = new RenderObject(c),
+                    Color = textColor
+                };
+                DrawPrimitive(d,nextPos);
             }
         }
 
-        public void DrawTextInCenter(string text, int offset, int y)
+        public void DrawTextInCenter(string text, int offset, int y, Color textColor = Color.White)
         {
-            DrawText(text, new Point(Other.GetCenterStartPositionForText(text,WindowWidth, offset),y));
+            DrawText(text, new Point(Other.GetCenterStartPositionForText(text,WindowWidth, offset),y), textColor);
         }
-        public void DrawTextInCenter(string text, int offset, int y, out Point textStartPos)
+        public void DrawTextInCenter(string text, int offset, int y, out Point textStartPos, Color textColor = Color.White)
         {
             var t = new Point(Other.GetCenterStartPositionForText(text, WindowWidth, offset), y);
             textStartPos = new Point(WindowWidth-t.X, y);
-            DrawText(text, t);
+            DrawText(text, t,textColor);
         }
         
         protected abstract void OnRenderStart();
         protected abstract void OnRenderObject(Cell cell, Point cellPos);
         protected abstract void OnRenderEnd();
+        public abstract void DrawPrimitive(CellData data, Point cellPos);
         public abstract void DrawPrimitive(RenderObject renderObject, Point cellPos);
         
         

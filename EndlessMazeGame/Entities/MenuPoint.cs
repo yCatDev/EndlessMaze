@@ -1,4 +1,5 @@
-﻿using AbstractEngine.Core.Base;
+﻿using System;
+using AbstractEngine.Core.Base;
 
 namespace EndlessMazeGame.Entities
 {
@@ -28,20 +29,7 @@ namespace EndlessMazeGame.Entities
                 {
                     return;
                 }
-
-                switch (_index)
-                {
-                    case 0:
-                        SetPosition(_menuPlay);
-                        break;
-                    case 1:
-                        SetPosition(_menuContinue);
-                        break;
-                    case 2:
-                        SetPosition(_menuExit);
-                        break;
-                }
-            }
+            }else
             if (InputManger.OnKeyDown(VirtualKeys.Up))
             {
                 if (_index > 0)
@@ -50,7 +38,11 @@ namespace EndlessMazeGame.Entities
                 {
                     return;
                 }
+            }
+            UpdatePosition();
 
+            if (InputManger.OnKeyDown(VirtualKeys.Space) || InputManger.OnKeyDown(VirtualKeys.Return))
+            {
                 switch (_index)
                 {
                     case 0:
@@ -60,9 +52,25 @@ namespace EndlessMazeGame.Entities
                         SetPosition(_menuContinue);
                         break;
                     case 2:
-                        SetPosition(_menuExit);
+                        Environment.Exit(0);
                         break;
                 }
+            }
+        }
+
+        private void UpdatePosition()
+        {
+            switch (_index)
+            {
+                case 0:
+                    SetPosition(_menuPlay);
+                    break;
+                case 1:
+                    SetPosition(_menuContinue);
+                    break;
+                case 2:
+                    SetPosition(_menuExit);
+                    break;
             }
         }
     }

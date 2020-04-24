@@ -22,7 +22,7 @@ namespace SFMLEngine
         protected override void OnRenderStart()
         {
             _window.DispatchEvents();
-            _window.Clear(Color.White);
+            _window.Clear(SFML.Graphics.Color.White);
         }
 
         protected override void OnRenderObject(Cell cell, Point cellPos)
@@ -41,6 +41,11 @@ namespace SFMLEngine
         protected override void OnRenderEnd()
         {
             _window.Display();
+        }
+
+        public override void DrawPrimitive(CellData data, Point cellPos)
+        {
+            GameGrid[cellPos] = new Cell(data); 
         }
 
         public override void DrawPrimitive(RenderObject renderObject, Point cellPos)

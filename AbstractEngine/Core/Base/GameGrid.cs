@@ -60,10 +60,16 @@ namespace AbstractEngine.Core.Base
             };
         }
 
+        public Cell(CellData data)
+        {
+            Updated = true;
+            EntityName = "";
+            _data = data;
+        }
+
         public bool GetRenderObject<T>(out T obj)
         {
             obj = default;
-            
             if (_data.RenderObject?.renderObject is T)
             {
                 obj = (T) _data.RenderObject.renderObject;
@@ -84,12 +90,35 @@ namespace AbstractEngine.Core.Base
             return result;
         }
 
+        public T GetColor<T>() where T: struct, Enum=> Enum.Parse<T>(_data.Color.ToString());
+        
         public void SetName(string name) => EntityName = name;
     }
 
-    internal struct CellData
+    public enum Color
+    {
+        White,
+        Black,
+        DarkBlue,
+        DarkGreen,
+        DarkCyan,
+        DarkRed,
+        DarkMagenta,
+        DarkYellow,
+        Gray,
+        DarkGray,
+        Blue,
+        Green,
+        Cyan,
+        Red,
+        Magenta,
+        Yellow
+    }
+
+    public struct CellData
     {
         public RenderObject RenderObject;
+        public Color Color;
     }
 
     public class RenderObject

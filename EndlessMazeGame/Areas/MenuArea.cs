@@ -37,12 +37,12 @@ namespace EndlessMazeGame.Areas
                 e.DrawPrimitive(MenuV, new Point(e.WindowWidth-1, i));
             }
             
-            e.DrawTextInCenter(e.WindowTitle, 2, 4);
+            e.DrawTextInCenter(e.WindowTitle, 2, 4, Color.Magenta);
             e.DrawTextInCenter("Total time in mazes", 2, 7);
             e.DrawTextInCenter("00:00:00", 2, 8);
-            e.DrawTextInCenter("Play", 2, 12, out var playPoint);
-            e.DrawTextInCenter("Continue", 2, 13, out var continuePoint);
-            e.DrawTextInCenter("Exit", 2, 15, out var exitPoint);
+            e.DrawTextInCenter("Play", 2, 12, out var playPoint, Color.Green);
+            e.DrawTextInCenter("Continue", 2, 13, out var continuePoint, Color.Yellow);
+            e.DrawTextInCenter("Exit", 2, 15, out var exitPoint,Color.Red);
             
             var menuPoint = new MenuPoint("MenuPoint", playPoint, "Player", this);
             menuPoint.SetMenuPoints(playPoint, continuePoint, exitPoint);

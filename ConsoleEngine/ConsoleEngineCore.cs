@@ -12,6 +12,7 @@ namespace ConsoleEngine
         {
             Console.CursorVisible = false;
             Console.Title = title;
+            Console.SetWindowSize(w,h);
         }
 
    
@@ -24,6 +25,7 @@ namespace ConsoleEngine
         protected override void OnRenderObject(Cell cell, Point cellPos)
         {
             Console.SetCursorPosition(cellPos.X, cellPos.Y);
+            Console.ForegroundColor = cell.GetColor<ConsoleColor>();
             //Console.WriteLine(cellPos.ToString());
             if (cell.GetRenderObject<char>(out var res))
                 Console.Write(res);
@@ -38,6 +40,11 @@ namespace ConsoleEngine
             Thread waitThread = new Thread(() =>Thread.Sleep(100));
             waitThread.Start();                    
             waitThread.Join();
+        }
+
+        public override void DrawPrimitive(CellData data, Point cellPos)
+        {
+            GameGrid[cellPos] = new Cell(data);
         }
 
         public override void DrawPrimitive(RenderObject renderObject, Point cellPos)

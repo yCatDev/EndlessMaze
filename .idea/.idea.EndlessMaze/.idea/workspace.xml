@@ -2,31 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b7985ce-9503-462b-90d2-71de21245993" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AbstractEngine/Core/Other.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessMaze/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/obj/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/obj/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AbstractEngine/obj/Debug/netcoreapp3.1/AbstractEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractEngine/obj/Debug/netcoreapp3.1/AbstractEngine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleEngine/ConsoleEngineCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/ConsoleEngineCore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/ConsoleEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/ConsoleEngine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/ConsoleEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/bin/Debug/netcoreapp3.1/ConsoleEngine.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleEngine/obj/Debug/netcoreapp3.1/ConsoleEngine.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/ConsoleEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/ConsoleEngine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/ConsoleEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/ConsoleEngine.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/EndlessMazeGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/EndlessMazeGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/EndlessMazeGame.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/EndlessMazeGame.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/SFMLEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/SFMLEngine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/SFMLEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/bin/Debug/netcoreapp3.1/SFMLEngine.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessMazeGame/obj/Debug/netcoreapp3.1/EndlessMazeGame.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFMLEngine/SFMLEngineCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/SFMLEngineCore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/AbstractEngine.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/AbstractEngine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/SFMLEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/SFMLEngine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/SFMLEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/bin/Debug/netcoreapp3.1/SFMLEngine.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SFMLEngine/obj/Debug/netcoreapp3.1/SFMLEngine.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/obj/Debug/netcoreapp3.1/SFMLEngine.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFMLEngine/obj/Debug/netcoreapp3.1/SFMLEngine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/obj/Debug/netcoreapp3.1/SFMLEngine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFMLEngine/obj/Debug/netcoreapp3.1/SFMLEngine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SFMLEngine/obj/Debug/netcoreapp3.1/SFMLEngine.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Other.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Resources.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/34BD0CE0-8D6E-4D26-91D4-66748931FB89/c2/89ec02eb/ConsoleColor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Core.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,17 +87,17 @@
         <option value="$PROJECT_DIR$/ConsoleEngine/ConsoleEngine.cs" />
         <option value="$PROJECT_DIR$/SFMLEngine/Program.cs" />
         <option value="$PROJECT_DIR$/SFMLEngine/Class1.cs" />
-        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" />
         <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/TestSharpEntity.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/InputManager.cs" />
         <option value="$PROJECT_DIR$/EndlessMazeGame/Areas/TestArea.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/Area.cs" />
-        <option value="$PROJECT_DIR$/SFMLEngine/SFMLEngineCore.cs" />
-        <option value="$PROJECT_DIR$/ConsoleEngine/ConsoleEngineCore.cs" />
-        <option value="$PROJECT_DIR$/EndlessMazeGame/Program.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Other.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/Entity.cs" />
         <option value="$PROJECT_DIR$/EndlessMazeGame/Entities/MenuPoint.cs" />
+        <option value="$PROJECT_DIR$/EndlessMazeGame/Program.cs" />
+        <option value="$PROJECT_DIR$/ConsoleEngine/ConsoleEngineCore.cs" />
+        <option value="$PROJECT_DIR$/SFMLEngine/SFMLEngineCore.cs" />
+        <option value="$PROJECT_DIR$/AbstractEngine/Core/Base/GameGrid.cs" />
         <option value="$PROJECT_DIR$/AbstractEngine/Core/Core.cs" />
         <option value="$PROJECT_DIR$/EndlessMazeGame/Areas/MenuArea.cs" />
       </list>
@@ -135,7 +148,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587426004342</updated>
       <workItem from="1587426036696" duration="35405000" />
-      <workItem from="1587589729736" duration="23731000" />
+      <workItem from="1587589729736" duration="25100000" />
     </task>
     <servers />
   </component>
@@ -165,22 +178,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587596235132" />
-    <state width="1877" height="299" key="GridCell.Tab.0.bottom" timestamp="1587689729053">
+    <state width="1877" height="299" key="GridCell.Tab.0.bottom" timestamp="1587691204765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587689729053" />
-    <state width="1877" height="299" key="GridCell.Tab.0.center" timestamp="1587689729053">
+    <state width="1877" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204765" />
+    <state width="1877" height="299" key="GridCell.Tab.0.center" timestamp="1587691204765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587689729053" />
-    <state width="1877" height="299" key="GridCell.Tab.0.left" timestamp="1587689729053">
+    <state width="1877" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204765" />
+    <state width="1877" height="299" key="GridCell.Tab.0.left" timestamp="1587691204764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587689729053" />
-    <state width="1877" height="299" key="GridCell.Tab.0.right" timestamp="1587689729053">
+    <state width="1877" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204764" />
+    <state width="1877" height="299" key="GridCell.Tab.0.right" timestamp="1587691204765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587689729053" />
+    <state width="1877" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587691204765" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1587594629423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

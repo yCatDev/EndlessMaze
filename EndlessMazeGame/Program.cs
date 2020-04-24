@@ -30,7 +30,7 @@ namespace EndlessMazeGame
             else
             {
                 _engine = new SFMLEngine.SFMLEngine(WIDTH,HEIGHT, 25,TITLE);
-                var s = new CircleShape {Radius = 10, FillColor = Color.Green};
+                var s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Green};
                 _engine.Resources.RegisterResource("sharp", s);//Register resources "Sharp" in SFML form
             }
             var menu = new MenuArea(_engine.GameGrid);//Create area
