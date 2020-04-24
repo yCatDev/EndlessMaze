@@ -23,7 +23,7 @@ namespace AbstractEngine.Core
 
         public void LoadArea(Area area) => _tmpArea = area;
 
-        public void Run()
+        public void Run()    
         {
             _delta.Start();
             while (true)
@@ -35,8 +35,8 @@ namespace AbstractEngine.Core
                 }
 
                 if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
-                _currentArea.Update();
-                _currentArea.UpdateEntities();
+                _currentArea?.Update();
+                _currentArea?.UpdateEntities();
                 OnRenderStart();
                 Render();
                 OnRenderEnd();
@@ -64,14 +64,14 @@ namespace AbstractEngine.Core
             {
                 var c = cs[i];
                 nextPos.X++;
-                OnTextCharDraw(c,nextPos);
+                DrawPrimitive(c,nextPos);
             }
         }
         
         protected abstract void OnRenderStart();
         protected abstract void OnRenderObject(Cell cell, Point cellPos);
         protected abstract void OnRenderEnd();
-        protected abstract void OnTextCharDraw(char c, Point cellPos);
+        public abstract void DrawPrimitive(char c, Point cellPos);
         
         
         

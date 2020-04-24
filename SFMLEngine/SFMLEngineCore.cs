@@ -43,7 +43,7 @@ namespace SFMLEngine
             _window.Display();
         }
 
-        protected override void OnTextCharDraw(char c, Point cellPos)
+        public override void DrawPrimitive(char c, Point cellPos)
         {
             var t = new Text(c.ToString(), new Font("arial.ttf")) {FillColor = Color.Black, CharacterSize = 18};
             GameGrid[cellPos] = new Cell(new RenderObject(t)); 

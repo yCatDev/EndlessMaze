@@ -40,7 +40,7 @@ namespace ConsoleEngine
             waitThread.Join();
         }
 
-        protected override void OnTextCharDraw(char c, Point cellPos)
+        public override void DrawPrimitive(char c, Point cellPos)
         {
             GameGrid[cellPos] = new Cell(new RenderObject(c));
         }

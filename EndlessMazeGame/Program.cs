@@ -24,7 +24,7 @@ namespace EndlessMazeGame
             if (!args.Contains("sfml"))//Check what mode you want
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
-                _engine.Resources.RegisterResource("sharp", '#');//Register resources "Sharp" in console form
+                ResourceManger.LoadResourcesForConsoleEngine(_engine.Resources);
             }
             else
             {
@@ -37,6 +37,19 @@ namespace EndlessMazeGame
             _engine.Run();//Run game
         }
         
-   
+        
+        public static class ResourceManger
+        {
+            public static void LoadResourcesForConsoleEngine(Resources resources)
+            {
+                resources.RegisterResource("MenuBorderUL", '╔');
+                resources.RegisterResource("MenuBorderUR", '╗');
+                resources.RegisterResource("MenuBorderDL", '╚');
+                resources.RegisterResource("MenuBorderDR", '╝');
+                resources.RegisterResource("MenuBorderH", '═');
+                resources.RegisterResource("MenuBorderV", '║');
+            }
+        }
+        
     }
 }
