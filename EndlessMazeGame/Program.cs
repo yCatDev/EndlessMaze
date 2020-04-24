@@ -24,6 +24,7 @@ namespace EndlessMazeGame
             if (!args.Contains("sfml"))//Check what mode you want
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
+                
                 ResourceManger.LoadResourcesForConsoleEngine(_engine.Resources);
             }
             else

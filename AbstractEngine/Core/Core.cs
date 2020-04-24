@@ -64,14 +64,14 @@ namespace AbstractEngine.Core
             {
                 var c = cs[i];
                 nextPos.X++;
-                DrawPrimitive(c,nextPos);
+                DrawPrimitive(new RenderObject(c),nextPos);
             }
         }
         
         protected abstract void OnRenderStart();
         protected abstract void OnRenderObject(Cell cell, Point cellPos);
         protected abstract void OnRenderEnd();
-        public abstract void DrawPrimitive(char c, Point cellPos);
+        public abstract void DrawPrimitive(RenderObject renderObject, Point cellPos);
         
         
         

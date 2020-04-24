@@ -40,9 +40,9 @@ namespace ConsoleEngine
             waitThread.Join();
         }
 
-        public override void DrawPrimitive(char c, Point cellPos)
+        public override void DrawPrimitive(RenderObject renderObject, Point cellPos)
         {
-            GameGrid[cellPos] = new Cell(new RenderObject(c));
+            GameGrid[cellPos] = new Cell(renderObject);
         }
     }
 }

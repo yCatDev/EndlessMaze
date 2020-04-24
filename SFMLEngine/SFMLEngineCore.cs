@@ -43,10 +43,9 @@ namespace SFMLEngine
             _window.Display();
         }
 
-        public override void DrawPrimitive(char c, Point cellPos)
+        public override void DrawPrimitive(RenderObject renderObject, Point cellPos)
         {
-            var t = new Text(c.ToString(), new Font("arial.ttf")) {FillColor = Color.Black, CharacterSize = 18};
-            GameGrid[cellPos] = new Cell(new RenderObject(t)); 
+            GameGrid[cellPos] = new Cell(renderObject); 
         }
     }
 }
