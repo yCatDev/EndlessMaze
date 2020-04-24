@@ -21,9 +21,12 @@ namespace EndlessMazeGame.Areas
         public override void Init()
         {
             _saveSystem = new SaveSystem();
-                _maze = new Maze.Maze(this);
-                _maze.CreateMaze(out var player);
-                _player = new Player("Player", "Player", player, _maze.TreasuresNum, this);
+            _maze = new Maze.Maze(this);
+            _maze.CreateMaze(out var player);
+                
+            _player = Entity.CreateEntity<Player>("Player", player, this);
+                
+            _player.SetTreasures(_maze.TreasuresNum);
             _clock = new Stopwatch();
             _clock.Start();
         }
@@ -43,7 +46,7 @@ namespace EndlessMazeGame.Areas
                 Grid.Core.LoadArea(new GameArea(false, Grid));
             }
         }
-
+         
         private void AddTime()
         {
             _saveSystem.SaveFile.timeInMaze += (int)_clock.Elapsed.TotalMilliseconds;

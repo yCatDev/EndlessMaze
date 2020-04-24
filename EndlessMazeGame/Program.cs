@@ -6,6 +6,7 @@ using AbstractEngine.Core.Base;
 using ConsoleEngine;
 using EndlessMazeGame.Areas;
 using SFML.Graphics;
+using SFML.System;
 
 
 namespace EndlessMazeGame
@@ -30,8 +31,7 @@ namespace EndlessMazeGame
             else
             {
                 _engine = new SFMLEngine.SFMLEngine(WIDTH,HEIGHT, 25,TITLE);
-                var s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Green};
-                _engine.Resources.RegisterResource("sharp", s);//Register resources "Sharp" in SFML form
+               ResourceManger.LoadResourcesForSFMLEngine(_engine.Resources);
             }
             var menu = new MenuArea(_engine.GameGrid);//Create area
             _engine.LoadArea(menu);//Load area
@@ -51,11 +51,36 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderH", '═');
                 resources.RegisterResource("MenuBorderV", '║');
                 
-                resources.RegisterResource("Treasure", '▓');
+                resources.RegisterResource("Treasure", '▒');
                 resources.RegisterResource("Player", '#');
                 resources.RegisterResource("Block", '█');
+                resources.RegisterResource("Stone", '@');
+                resources.RegisterResource("ExpWave", '█');
+                
+                resources.RegisterResource("Bomb1", '/');
+                resources.RegisterResource("Bomb2", '-');
+                resources.RegisterResource("Bomb3", @"\");
+                resources.RegisterResource("Bomb4", '|');
+                
+            }
+            public static void LoadResourcesForSFMLEngine(Resources resources)
+            {
+                var b = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Black};
+                resources.RegisterResource("MenuBorderUL", b);
+                resources.RegisterResource("MenuBorderUR", b);
+                resources.RegisterResource("MenuBorderDL", b);
+                resources.RegisterResource("MenuBorderDR", b);
+                resources.RegisterResource("MenuBorderH", b);
+                resources.RegisterResource("MenuBorderV", b);
+                
+                var s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Red};
+                resources.RegisterResource("Treasure", s);
+                s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Green};
+                resources.RegisterResource("Player", s);
+                resources.RegisterResource("Block", b);
             }
         }
-        
+     
     }
+    
 }

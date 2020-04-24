@@ -5,9 +5,10 @@ namespace EndlessMazeGame.Entities
 {
     public class Treasure: Entity
     {
-        public Treasure(string name, string treasureResource, Point startPos, Area area) : base(name, startPos, area)
+
+        public override void Start()
         {
-            SetNewGraphics(treasureResource, Other.RandomColor(Color.Cyan, Color.Red, Color.Yellow));
+            SetNewGraphics("Treasure", Other.RandomColor(Color.Cyan, Color.Red, Color.Yellow));
         }
 
         public override void Update()

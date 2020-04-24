@@ -154,4 +154,25 @@ namespace AbstractEngine.Core.Base
         public RenderObject() => renderObject = new object();
         public RenderObject(object _renderObject) => renderObject = _renderObject;
     }
+    
+    public class Point
+    {
+        public int X;
+        public int Y;
+
+        public Point(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"{X} {Y}";
+        }
+
+        public static readonly Point Zero = new Point(0,0);
+        
+    }
+    
 }

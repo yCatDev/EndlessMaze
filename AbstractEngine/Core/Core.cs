@@ -14,7 +14,8 @@ namespace AbstractEngine.Core
         public Resources Resources;
         public readonly int WindowWidth, WindowHeight;
         public readonly string WindowTitle;
-
+        private bool _clearScreenOnNextArea = false;
+        
         protected AbstractCore(int w, int h, string title)
         {
             _grid = new GameGrid(w,h, this);
@@ -27,10 +28,10 @@ namespace AbstractEngine.Core
             _tmpArea = null;
         }
 
-        public void LoadArea(Area area)
+        public void LoadArea(Area area, bool clearScreen = true)
         {
-           
             _tmpArea = area;
+            _clearScreenOnNextArea = clearScreen;
         }
 
 
@@ -44,17 +45,19 @@ namespace AbstractEngine.Core
                 try
                 {
                     if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
+                    if (_tmpArea != null)
+                    {
+                        _currentArea?.Unload(_clearScreenOnNextArea);
+                        _currentArea = _tmpArea;
+                        _tmpArea = null;
+                        _currentArea.Init();
+                    }
                     _currentArea?.Update();
                     _currentArea?.UpdateEntities();
                     OnRenderStart();
                     Render();
                     OnRenderEnd();
-                    if (_tmpArea != null)
-                    {
-
-                        _currentArea = _tmpArea;
-                        _tmpArea = null;
-                    }
+                    
 
                     _delta.Restart();
                 }
@@ -88,12 +91,8 @@ namespace AbstractEngine.Core
             {
                 var c = cs[i];
                 
-                var d = new CellData()
-                {
-                    RenderObject = new RenderObject(c),
-                    Color = textColor
-                };
-                DrawPrimitive(d,nextPos);
+                
+                OnDrawTextSymbol(c, nextPos, textColor);
                 nextPos.X++;
             }
         }
@@ -114,9 +113,10 @@ namespace AbstractEngine.Core
         protected abstract void OnRenderEnd();
         public abstract void DrawPrimitive(CellData data, Point cellPos);
         public abstract void DrawPrimitive(RenderObject renderObject, Point cellPos);
-        
-        
-        
-        
+        public abstract void OnDrawTextSymbol(char c, Point nextPos, Color textColor);
+
+
+
+
     }
 }

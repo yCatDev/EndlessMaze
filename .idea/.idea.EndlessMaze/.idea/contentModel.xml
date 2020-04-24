@@ -50,9 +50,12 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="EndlessMazeGame.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
+          <e p="Bomb.cs" t="Include" />
+          <e p="BombWave.cs" t="Include" />
           <e p="MazeBlock.cs" t="Include" />
           <e p="MenuPoint.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="Stone.cs" t="Include" />
           <e p="Treasure.cs" t="Include" />
         </e>
         <e p="Maze" t="Include">

@@ -51,7 +51,7 @@ namespace EndlessMazeGame.Areas
             e.DrawTextInCenter("Continue", 2, 13, out var continuePoint, Color.Yellow);
             e.DrawTextInCenter("Exit", 2, 15, out var exitPoint,Color.Red);
             
-            var menuPoint = new MenuPoint("MenuPoint", playPoint, "Player", this);
+            var menuPoint = Entity.CreateEntity<MenuPoint>("MenuPoint", playPoint, this);
             menuPoint.SetMenuPoints(playPoint, continuePoint, exitPoint);
             
         }

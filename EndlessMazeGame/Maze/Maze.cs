@@ -65,7 +65,7 @@ namespace EndlessMazeGame.Maze
                 }
             }
             CreateMazeOnArea();
-            playerPos = SpawnTreasuresAndPlayer();
+            playerPos = SpawnObjectsAndPlayer();
         }
         private void GetNeighbours(MazeCell localcell) // Получаем соседа текущей клетки
         {
@@ -110,17 +110,24 @@ namespace EndlessMazeGame.Maze
             _cells[second.Position.X, second.Position.Y] = second;
         }
 
-        private Point SpawnTreasuresAndPlayer()
+        private Point SpawnObjectsAndPlayer()
         {
             var possiblePos = _cells.Cast<MazeCell>().Where(x => x._isCell).Select(y => y.Position).ToList();
-            var n = new Random().Next(3, 6);
+            var n = new Random().Next(5, 12);
             for (int i = 0; i < n; i++)
             {
                 var r = new Random().Next(0, possiblePos.Count);
-                var t = new Treasure("Treasure", "Treasure", possiblePos[r], _area);
+                var t = Entity.CreateEntity<Treasure>("Treasure", possiblePos[r], _area);
                 possiblePos.RemoveAt(r);
             }
-
+            n = new Random().Next(5, 15);
+            for (int i = 0; i < n; i++)
+            {
+                var r = new Random().Next(0, possiblePos.Count);
+                var t = Entity.CreateEntity<Stone>("Stone", possiblePos[r], _area);
+                possiblePos.RemoveAt(r);
+            }
+            
             TreasuresNum = n;
             return possiblePos[new Random().Next(0, possiblePos.Count)];
         }
@@ -133,7 +140,7 @@ namespace EndlessMazeGame.Maze
                 var mazeCell = _cells[i, j];
                 if (!mazeCell._isCell)
                 {
-                    var mazeBlock = new MazeBlock($"Block{i}_{j}", new Point(i, j),"Block", Color.DarkGray, _area);
+                    Entity.CreateEntity<MazeBlock>($"Block{i}_{j}", new Point(i, j), _area);
                 }
             }
         }

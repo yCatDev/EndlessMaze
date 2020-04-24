@@ -2,12 +2,12 @@
 
 namespace EndlessMazeGame.Entities
 {
-    public class MazeBlock:Entity
+    public class Stone:Entity
     {
 
         public override void Start()
         {
-            SetNewGraphics("Block", Color.DarkGray);
+            SetNewGraphics("Stone", Color.Gray);
         }
 
         public override void Update()

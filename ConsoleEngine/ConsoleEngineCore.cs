@@ -13,6 +13,7 @@ namespace ConsoleEngine
             Console.CursorVisible = false;
             Console.Title = title;
             Console.SetWindowSize(w,h);
+            Console.SetBufferSize(w+1,h);
         }
 
         
@@ -50,6 +51,16 @@ namespace ConsoleEngine
         public override void DrawPrimitive(RenderObject renderObject, Point cellPos)
         {
             GameGrid[cellPos] = new Cell(renderObject);
+        }
+
+        public override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
+        {
+            var d = new CellData()
+            {
+                RenderObject = new RenderObject(c),
+                Color = textColor
+            };
+            DrawPrimitive(d,nextPos);
         }
     }
 }
