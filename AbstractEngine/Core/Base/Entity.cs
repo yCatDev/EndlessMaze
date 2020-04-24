@@ -19,6 +19,7 @@ namespace AbstractEngine.Core.Base
             _ownerArea.RegEntity(this);
         }
 
+        public void SetPosition(Point position) => SetPosition(position.X, position.Y);
         public void SetPosition(int x, int y)
         {
             if ((x>=_ownerArea.Grid.Width || y>=_ownerArea.Grid.Heigth)

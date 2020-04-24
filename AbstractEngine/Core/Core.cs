@@ -12,6 +12,8 @@ namespace AbstractEngine.Core
         private Area _currentArea, _tmpArea;
         private Stopwatch _delta;
         public Resources Resources;
+        public readonly int WindowWidth, WindowHeight;
+        public readonly string WindowTitle;
 
         protected AbstractCore(int w, int h, string title)
         {
@@ -19,6 +21,9 @@ namespace AbstractEngine.Core
             _delta = new Stopwatch();
             Resources = new Resources();
             InputManger.RegisterInput();
+            WindowHeight = h;
+            WindowWidth = w;
+            WindowTitle = title;
         }
 
         public void LoadArea(Area area) => _tmpArea = area;
@@ -66,6 +71,17 @@ namespace AbstractEngine.Core
                 nextPos.X++;
                 DrawPrimitive(new RenderObject(c),nextPos);
             }
+        }
+
+        public void DrawTextInCenter(string text, int offset, int y)
+        {
+            DrawText(text, new Point(Other.GetCenterStartPositionForText(text,WindowWidth, offset),y));
+        }
+        public void DrawTextInCenter(string text, int offset, int y, out Point textStartPos)
+        {
+            var t = new Point(Other.GetCenterStartPositionForText(text, WindowWidth, offset), y);
+            textStartPos = new Point(WindowWidth-t.X, y);
+            DrawText(text, t);
         }
         
         protected abstract void OnRenderStart();

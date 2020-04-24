@@ -14,8 +14,8 @@ namespace EndlessMazeGame
     {
         private static AbstractCore _engine;
         
-        private const int WIDTH = 20;
-        private const int HEIGHT = 10;
+        private const int WIDTH = 40;
+        private const int HEIGHT = 20;
         private const string TITLE = "Endless maze";
         
         [STAThread]
@@ -33,8 +33,8 @@ namespace EndlessMazeGame
                 var s = new CircleShape {Radius = 10, FillColor = Color.Green};
                 _engine.Resources.RegisterResource("sharp", s);//Register resources "Sharp" in SFML form
             }
-            var test = new TestArea(_engine.GameGrid);//Create area
-            _engine.LoadArea(test);//Load area
+            var menu = new MenuArea(_engine.GameGrid);//Create area
+            _engine.LoadArea(menu);//Load area
             _engine.Run();//Run game
         }
         
@@ -49,6 +49,8 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderDR", '╝');
                 resources.RegisterResource("MenuBorderH", '═');
                 resources.RegisterResource("MenuBorderV", '║');
+                
+                resources.RegisterResource("Player", '#');
             }
         }
         

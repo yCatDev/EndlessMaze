@@ -1,4 +1,7 @@
-﻿using AbstractEngine.Core.Base;
+﻿using System;
+using AbstractEngine.Core.Base;
+using EndlessMazeGame.Entities;
+using SFML.Window;
 
 namespace EndlessMazeGame.Areas
 {
@@ -10,10 +13,44 @@ namespace EndlessMazeGame.Areas
 
         public override void Init()
         {
-            var MenuUL = Grid.Core.Resources["MenuBorderUL"];
-            Grid.Core.DrawPrimitive(MenuUL, Point.Zero);
+            var e = Grid.Core;
+            var MenuUL = e.Resources["MenuBorderUL"];
+            var MenuUR = e.Resources["MenuBorderUR"];
+            var MenuDL = e.Resources["MenuBorderDL"];
+            var MenuDR = e.Resources["MenuBorderDR"];
+            var MenuV =e.Resources["MenuBorderV"];
+            var MenuH = e.Resources["MenuBorderH"];
+            
+            e.DrawPrimitive(MenuUL, Point.Zero);
+            e.DrawPrimitive(MenuUR, new Point(e.WindowWidth-1, 0));
+            e.DrawPrimitive(MenuDL, new Point(0, e.WindowHeight-1));
+            e.DrawPrimitive(MenuDR, new Point(e.WindowWidth-1, e.WindowHeight-1));
+
+            for (int i = 1; i < e.WindowWidth - 1; i++)
+            {
+                e.DrawPrimitive(MenuH, new Point(i, 0));
+                e.DrawPrimitive(MenuH, new Point(i, e.WindowHeight - 1));
+            }
+            for (int i = 1; i < e.WindowHeight - 1; i++)
+            {
+                e.DrawPrimitive(MenuV, new Point(0, i));
+                e.DrawPrimitive(MenuV, new Point(e.WindowWidth-1, i));
+            }
+            
+            e.DrawTextInCenter(e.WindowTitle, 2, 4);
+            e.DrawTextInCenter("Total time in mazes", 2, 7);
+            e.DrawTextInCenter("00:00:00", 2, 8);
+            e.DrawTextInCenter("Play", 2, 12, out var playPoint);
+            e.DrawTextInCenter("Continue", 2, 13, out var continuePoint);
+            e.DrawTextInCenter("Exit", 2, 15, out var exitPoint);
+            
+            var menuPoint = new MenuPoint("MenuPoint", playPoint, "Player", this);
+            menuPoint.SetMenuPoints(playPoint, continuePoint, exitPoint);
+            
         }
 
+        
+        
         public override void Update()
         {
             
