@@ -48,7 +48,7 @@ namespace EndlessMazeGame.Entities
                 switch (_index)
                 {
                     case 0:
-                        _ownerArea.Grid.Core.LoadArea(new GameArea(_ownerArea.Grid.Core.GameGrid));
+                        _ownerArea.Grid.Core.LoadArea(new GameArea(false, _ownerArea.Grid.Core.GameGrid));
                         break;
                     case 1:
                         SetPosition(_menuContinue);

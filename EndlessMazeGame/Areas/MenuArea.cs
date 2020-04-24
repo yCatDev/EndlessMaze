@@ -7,6 +7,9 @@ namespace EndlessMazeGame.Areas
 {
     public class MenuArea: Area
     {
+
+        private SaveSystem _saveSystem;
+        
         public MenuArea(GameGrid gameGrid) : base(gameGrid)
         {
         }
@@ -14,6 +17,8 @@ namespace EndlessMazeGame.Areas
         public override void Init()
         {
             var e = Grid.Core;
+            _saveSystem = new SaveSystem();
+            
             var MenuUL = e.Resources["MenuBorderUL"];
             var MenuUR = e.Resources["MenuBorderUR"];
             var MenuDL = e.Resources["MenuBorderDL"];
@@ -39,7 +44,9 @@ namespace EndlessMazeGame.Areas
             
             e.DrawTextInCenter(e.WindowTitle, 2, 4, Color.Magenta);
             e.DrawTextInCenter("Total time in mazes", 2, 7);
-            e.DrawTextInCenter("00:00:00", 2, 8);
+
+            var time = TimeSpan.FromMilliseconds(_saveSystem.SaveFile.timeInMaze).ToString(@"hh\:mm\:ss");
+            e.DrawTextInCenter(time, 2, 8);
             e.DrawTextInCenter("Play", 2, 12, out var playPoint, Color.Green);
             e.DrawTextInCenter("Continue", 2, 13, out var continuePoint, Color.Yellow);
             e.DrawTextInCenter("Exit", 2, 15, out var exitPoint,Color.Red);

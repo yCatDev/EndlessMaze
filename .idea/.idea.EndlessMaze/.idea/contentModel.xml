@@ -53,6 +53,7 @@
           <e p="MazeBlock.cs" t="Include" />
           <e p="MenuPoint.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="Treasure.cs" t="Include" />
         </e>
         <e p="Maze" t="Include">
           <e p="Maze.cs" t="Include" />
@@ -66,6 +67,7 @@
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="Save.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="SFMLEngine" t="IncludeRecursive">

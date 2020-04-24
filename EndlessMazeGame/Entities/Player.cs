@@ -5,9 +5,11 @@ namespace EndlessMazeGame.Entities
 {
     public class Player:Entity
     {
-        public Player(string name, string playerResource,Point startPos, Area area) : base(name, startPos, area)
+        public int CollectedTreasures = 0;
+        public Player(string name, string playerResource,Point startPos, int treasures, Area area) : base(name, startPos, area)
         {
             SetNewGraphics(playerResource);
+            CollectedTreasures = treasures;
         }
 
         public override void Update()
@@ -17,41 +19,55 @@ namespace EndlessMazeGame.Entities
             if (InputManger.OnKeyDown(VirtualKeys.Down))
             {
                t.Y++;
-                if (t.Y <= e.WindowHeight && !_ownerArea.Grid[t].GetName().Contains("Block"))
+                if (t.Y <= e.WindowHeight)
                 {
                     
-                    SetPosition(t);
+                    Move(t);
                    
                 }
             }
             if (InputManger.OnKeyDown(VirtualKeys.Up))
             {
                t.Y--;
-                if (t.Y >= 0 && !_ownerArea.Grid[t].GetName().Contains("Block"))
+                if (t.Y >= 0)
                 {
                     
-                    SetPosition(t);
+                    Move(t);
                 } 
             }
             if (InputManger.OnKeyDown(VirtualKeys.Left))
             {
                 t.X--;
-                if (t.X>= 0 && !_ownerArea.Grid[t].GetName().Contains("Block"))
+                if (t.X>= 0 )
                 {
                     
-                    SetPosition(t);
+                    Move(t);
                 }
             }
             if (InputManger.OnKeyDown(VirtualKeys.Right))
             { 
                 t.X++;
-                if (t.X  <= e.WindowWidth && !_ownerArea.Grid[t].GetName().Contains("Block"))
+                if (t.X  <= e.WindowWidth)
                 {
                    
-                    SetPosition(t);
+                    Move(t);
                 }
             }
             
+        }
+
+        private void Move(Point to)
+        {
+            var nextCell = _ownerArea.Grid[to];
+            if (nextCell.GetName().Contains("Block"))
+                return;
+            if (nextCell.GetName().Contains("Treasure"))
+            {
+                _ownerArea.Grid.MakeCellEmpty(to);
+                CollectedTreasures--;
+            }
+
+            SetPosition(to);
         }
     }
 }

@@ -87,13 +87,14 @@ namespace AbstractEngine.Core
             for (var i = 0; i < cs.Length; i++)
             {
                 var c = cs[i];
-                nextPos.X++;
+                
                 var d = new CellData()
                 {
                     RenderObject = new RenderObject(c),
                     Color = textColor
                 };
                 DrawPrimitive(d,nextPos);
+                nextPos.X++;
             }
         }
 

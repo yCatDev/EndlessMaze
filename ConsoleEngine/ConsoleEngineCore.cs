@@ -19,7 +19,7 @@ namespace ConsoleEngine
 
         protected override void OnRenderStart()
         {
-            Console.CursorVisible = true;
+            Console.CursorVisible = false;
         }
 
         protected override void OnRenderObject(Cell cell, Point cellPos)
@@ -37,7 +37,7 @@ namespace ConsoleEngine
 
         protected override void OnRenderEnd()
         {
-            Thread waitThread = new Thread(() =>Thread.Sleep(100));
+            Thread waitThread = new Thread(() =>Thread.Sleep(50));
             waitThread.Start();                    
             waitThread.Join();
         }

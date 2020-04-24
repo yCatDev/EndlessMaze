@@ -51,6 +51,7 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderH", '═');
                 resources.RegisterResource("MenuBorderV", '║');
                 
+                resources.RegisterResource("Treasure", '▓');
                 resources.RegisterResource("Player", '#');
                 resources.RegisterResource("Block", '█');
             }
