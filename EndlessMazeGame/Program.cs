@@ -72,12 +72,24 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderDR", b);
                 resources.RegisterResource("MenuBorderH", b);
                 resources.RegisterResource("MenuBorderV", b);
+                resources.RegisterResource("MenuPointer", b);
                 
-                var s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Red};
+                Shape s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Red};
                 resources.RegisterResource("Treasure", s);
                 s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Green};
                 resources.RegisterResource("Player", s);
                 resources.RegisterResource("Block", b);
+                s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Green}; 
+                resources.RegisterResource("Stone", s);
+                s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Red};
+                resources.RegisterResource("ExpWave", s);
+                
+                s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Red};
+                resources.RegisterResource("Bomb1", s);
+                resources.RegisterResource("Bomb3", s);
+                s = new RectangleShape() {Size = new Vector2f(10,10), FillColor = SFML.Graphics.Color.Red};
+                resources.RegisterResource("Bomb2", s);
+                resources.RegisterResource("Bomb4", s);
             }
         }
      
