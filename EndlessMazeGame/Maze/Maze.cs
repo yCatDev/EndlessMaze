@@ -118,6 +118,7 @@ namespace EndlessMazeGame.Maze
             possiblePos.Remove(playrPos);
             
             var n = new Random().Next(5, 12);
+            TreasuresNum = n;
             for (int i = 0; i < n; i++)
             {
                 var r = new Random().Next(0, possiblePos.Count);
@@ -135,7 +136,7 @@ namespace EndlessMazeGame.Maze
                 possiblePos.RemoveAt(r);
             }
             
-            TreasuresNum = n;
+            
             return playrPos;
         }
         

@@ -50,6 +50,7 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderDR", '╝');
                 resources.RegisterResource("MenuBorderH", '═');
                 resources.RegisterResource("MenuBorderV", '║');
+                resources.RegisterResource("MenuPointer", '>');
                 
                 resources.RegisterResource("Treasure", '▒');
                 resources.RegisterResource("Player", '#');
@@ -61,7 +62,6 @@ namespace EndlessMazeGame
                 resources.RegisterResource("Bomb2", '-');
                 resources.RegisterResource("Bomb3", @"\");
                 resources.RegisterResource("Bomb4", '|');
-                
             }
             public static void LoadResourcesForSFMLEngine(Resources resources)
             {

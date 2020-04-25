@@ -18,7 +18,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Start()
         {
-            SetNewGraphics("Player");
+            SetNewGraphics("MenuPointer");
         }
 
         public override void Update()
@@ -48,7 +48,7 @@ namespace EndlessMazeGame.Entities
                 switch (_index)
                 {
                     case 0:
-                        _ownerArea.Grid.Core.LoadArea(new GameArea(false, _ownerArea.Grid.Core.GameGrid));
+                        Area.Grid.Core.LoadArea(new GameArea(false, Area.Grid.Core.GameGrid));
                         break;
                     case 1:
                         SetPosition(_menuContinue);

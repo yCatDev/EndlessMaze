@@ -71,23 +71,23 @@ namespace EndlessMazeGame.Entities
             }
 
             var selfPos = new Point(GetPosition().X, GetPosition().Y);
-            _ownerArea.Grid.MakeCellEmpty(selfPos);
+            Area.Grid.MakeCellEmpty(selfPos);
             positions.Add(selfPos);
             bool isPlayerInZone = false;
             foreach (var point in positions)
             {
-                if (_ownerArea.Grid[point].IsName("Player"))
+                if (Area.Grid[point].IsName("Player"))
                     isPlayerInZone = true;
-                CreateEntity<BombWave>("ExplosionWave", point, _ownerArea);
+                CreateEntity<BombWave>("ExplosionWave", point, Area);
             }
             if (isPlayerInZone)
-                _ownerArea.FindEntity<Player>("Player")?.Die();
+                Area.FindEntity<Player>("Player")?.Die();
             Exploded = true;
         }
 
         private bool CheckExp(Point p) =>
-            (_ownerArea.Grid[p].GetName().Contains("Stone") || _ownerArea.Grid[p].GetName().Contains("Player")) 
-                || string.IsNullOrEmpty( _ownerArea.Grid[p].GetName());
+            (Area.Grid[p].GetName().Contains("Stone") || Area.Grid[p].GetName().Contains("Player")) 
+                || string.IsNullOrEmpty( Area.Grid[p].GetName());
         
         public override void Destroy(bool clearCell = true)
         {

@@ -5,10 +5,12 @@ namespace AbstractEngine.Core.Base
     public abstract class Entity
     {
         public string Name;
-
+        public Area Area => _ownerArea;
+        
         private Point _gridPosition;
             
-        protected Area _ownerArea;
+        private Area _ownerArea;
+        
 
         protected Entity()
         {

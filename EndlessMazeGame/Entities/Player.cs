@@ -25,7 +25,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
-            var e = _ownerArea.Grid.Core;
+            var e = Area.Grid.Core;
 
             if (_bomb!=null&&_bomb.Exploded)
                 _bomb = null;
@@ -75,7 +75,7 @@ namespace EndlessMazeGame.Entities
         public void Die()
         {
             Thread.Sleep(250);
-            _ownerArea.Grid.Core.LoadArea(new GameOverArea(_ownerArea.Grid), false);
+            Area.Grid.Core.LoadArea(new GameOverArea(Area.Grid), false);
         }
         
         private void SpawnBomb()
@@ -89,38 +89,38 @@ namespace EndlessMazeGame.Entities
                     break;
                 case MoveDirection.Up:
                     t.Y++;
-                    if (string.IsNullOrEmpty(_ownerArea.Grid[t].GetName()) && t.Y <= _ownerArea.Grid.Core.WindowHeight)
+                    if (string.IsNullOrEmpty(Area.Grid[t].GetName()) && t.Y <= Area.Grid.Core.WindowHeight)
                         to = t;
                     break;
                 case MoveDirection.Down:
                     t.Y--;
-                    if (string.IsNullOrEmpty(_ownerArea.Grid[t].GetName()) && t.Y >= 0)
+                    if (string.IsNullOrEmpty(Area.Grid[t].GetName()) && t.Y >= 0)
                         to = t;
                     break;
                 case MoveDirection.Left:
                     t.X++;
-                    if (string.IsNullOrEmpty(_ownerArea.Grid[t].GetName()) && t.X  <= _ownerArea.Grid.Core.WindowWidth)
+                    if (string.IsNullOrEmpty(Area.Grid[t].GetName()) && t.X  <= Area.Grid.Core.WindowWidth)
                         to = t;
                     break;
                 case MoveDirection.Right:
                     t.X--;
-                    if (string.IsNullOrEmpty(_ownerArea.Grid[t].GetName()) && t.X>= 0)
+                    if (string.IsNullOrEmpty(Area.Grid[t].GetName()) && t.X>= 0)
                         to = t;
                     break;
             }
             if (to!=Point.Zero)
-                _bomb = CreateEntity<Bomb>("Bomb", to, _ownerArea);
+                _bomb = CreateEntity<Bomb>("Bomb", to, Area);
         }
         
         private void Move(Point to)
         {
-            var nextCell = _ownerArea.Grid[to];
+            var nextCell = Area.Grid[to];
             var o = nextCell.GetName();
             if (o.Contains("Block") || o.Contains("Bomb")|| o.Contains("Stone"))
                 return;
             if (o.Contains("Treasure"))
             {
-                _ownerArea.Grid.MakeCellEmpty(to);
+                Area.Grid.MakeCellEmpty(to);
                 CollectedTreasures--;
             }
 

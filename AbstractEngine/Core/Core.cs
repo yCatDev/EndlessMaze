@@ -99,12 +99,12 @@ namespace AbstractEngine.Core
 
         public void DrawTextInCenter(string text, int offset, int y, Color textColor = Color.White)
         {
-            DrawText(text, new Point(Other.GetCenterStartPositionForText(text,WindowWidth, offset),y), textColor);
+            DrawText(text, new Point(Other.GetCenterStartPositionForText(text,WindowWidth),y), textColor);
         }
         public void DrawTextInCenter(string text, int offset, int y, out Point textStartPos, Color textColor = Color.White)
         {
-            var t = new Point(Other.GetCenterStartPositionForText(text, WindowWidth, offset), y);
-            textStartPos = new Point(WindowWidth-t.X, y);
+            var t = new Point(Other.GetCenterStartPositionForText(text, WindowWidth), y);
+            textStartPos = new Point(t.X-1, y);
             DrawText(text, t,textColor);
         }
         
