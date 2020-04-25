@@ -45,6 +45,7 @@
       <e p="EndlessMazeGame" t="IncludeRecursive">
         <e p="Areas" t="Include">
           <e p="GameArea.cs" t="Include" />
+          <e p="GameOverArea.cs" t="Include" />
           <e p="MenuArea.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />

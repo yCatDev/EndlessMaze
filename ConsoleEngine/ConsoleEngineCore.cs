@@ -15,9 +15,7 @@ namespace ConsoleEngine
             Console.SetWindowSize(w,h);
             Console.SetBufferSize(w+1,h);
         }
-
         
-
         protected override void OnRenderStart()
         {
             Console.CursorVisible = false;

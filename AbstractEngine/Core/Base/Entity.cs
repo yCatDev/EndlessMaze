@@ -58,10 +58,11 @@ namespace AbstractEngine.Core.Base
             return e;
         }
 
-        public virtual void Destroy()
+        public virtual void Destroy(bool clearCell = true)
         {
             _ownerArea.DeleteEntity(this);
-            _ownerArea.Grid.MakeCellEmpty(_gridPosition);
+            if (clearCell)
+                _ownerArea.Grid.MakeCellEmpty(_gridPosition);
         }
     }
 

@@ -112,7 +112,11 @@ namespace EndlessMazeGame.Maze
 
         private Point SpawnObjectsAndPlayer()
         {
-            var possiblePos = _cells.Cast<MazeCell>().Where(x => x._isCell).Select(y => y.Position).ToList();
+            var possiblePos = _cells.Cast<MazeCell>().Where(x => x._isCell)
+                .Select(y => y.Position).ToList();
+            var playrPos = possiblePos[new Random().Next(0, possiblePos.Count)];
+            possiblePos.Remove(playrPos);
+            
             var n = new Random().Next(5, 12);
             for (int i = 0; i < n; i++)
             {
@@ -120,6 +124,9 @@ namespace EndlessMazeGame.Maze
                 var t = Entity.CreateEntity<Treasure>("Treasure", possiblePos[r], _area);
                 possiblePos.RemoveAt(r);
             }
+
+
+            possiblePos = possiblePos.Where(x => Point.Distance(x, playrPos) > 5).ToList();
             n = new Random().Next(5, 15);
             for (int i = 0; i < n; i++)
             {
@@ -129,7 +136,7 @@ namespace EndlessMazeGame.Maze
             }
             
             TreasuresNum = n;
-            return possiblePos[new Random().Next(0, possiblePos.Count)];
+            return playrPos;
         }
         
         private void CreateMazeOnArea()

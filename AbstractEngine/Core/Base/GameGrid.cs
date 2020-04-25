@@ -171,6 +171,9 @@ namespace AbstractEngine.Core.Base
             return $"{X} {Y}";
         }
 
+        public static int Distance(Point p1, Point p2)
+            => (int)Math.Sqrt(Math.Pow(p2.X - p1.X, 2) +Math.Pow(p2.Y - p1.Y, 2));
+
         public static readonly Point Zero = new Point(0,0);
         
     }

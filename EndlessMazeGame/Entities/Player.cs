@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading;
 using AbstractEngine.Core.Base;
+using EndlessMazeGame.Areas;
 
 namespace EndlessMazeGame.Entities
 {
@@ -70,6 +72,12 @@ namespace EndlessMazeGame.Entities
                 SpawnBomb();
         }
 
+        public void Die()
+        {
+            Thread.Sleep(250);
+            _ownerArea.Grid.Core.LoadArea(new GameOverArea(_ownerArea.Grid), false);
+        }
+        
         private void SpawnBomb()
         {
             var t = GetPosition();

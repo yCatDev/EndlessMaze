@@ -14,7 +14,7 @@ namespace AbstractEngine.Core
         public Resources Resources;
         public readonly int WindowWidth, WindowHeight;
         public readonly string WindowTitle;
-        private bool _clearScreenOnNextArea = false;
+        private bool _clearScreenOnNextArea = true;
         
         protected AbstractCore(int w, int h, string title)
         {
@@ -67,7 +67,7 @@ namespace AbstractEngine.Core
                     Console.WriteLine(e.Message);
                     Console.WriteLine(e.StackTrace);
                     Console.WriteLine(e.Data);
-                    Console.ReadKey();
+                    break;
                 }
             }
         }

@@ -23,10 +23,10 @@ namespace EndlessMazeGame.Entities
             
         }
 
-        public override void Destroy()
+        public override void Destroy(bool clearCell = true)
         {
             _liveTimer.Dispose();
-            base.Destroy();
+            base.Destroy(clearCell);
         }
     }
 }

@@ -7,12 +7,10 @@ namespace AbstractEngine.Core.Base
     {
         private List<Entity> _entities;
         public GameGrid Grid { get; }
-        public Area(GameGrid gameGrid, bool clearScreen = true)
+        public Area(GameGrid gameGrid)
         {
             _entities = new List<Entity>();
             Grid = gameGrid;
-            if (clearScreen)
-                Grid.Clear();
             //Init();
         }
 
@@ -30,7 +28,10 @@ namespace AbstractEngine.Core.Base
                 c = _entities.Count;
             }
         }
-       
+
+        public T FindEntity<T>(string name) where T: Entity
+            => (T)_entities.Find(x => x.Name == name);
+        
         public RenderObject GetResource(string name) => Grid.Core.Resources[name];
 
         private protected virtual void OnUnload()
@@ -47,7 +48,7 @@ namespace AbstractEngine.Core.Base
             OnUnload();
             while (_entities.Count>0)
             {
-                _entities[0]?.Destroy();
+                _entities[0]?.Destroy(clearScreen);
             }
             _entities.Clear();
             if (clearScreen)
