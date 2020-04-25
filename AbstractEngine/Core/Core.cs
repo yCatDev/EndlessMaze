@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Threading;
 using AbstractEngine.Core.Base;
 
@@ -121,7 +122,18 @@ namespace AbstractEngine.Core
         public abstract void OnDrawTextSymbol(char c, Point nextPos, Color textColor);
 
 
+        #region WinAPI_Console_Hide
 
+        [DllImport("kernel32.dll")]
+        protected static extern IntPtr GetConsoleWindow();
+        
+        [DllImport("user32.dll")]
+        protected static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        
+        protected const int SW_HIDE = 0;
+        protected const int SW_SHOW = 5;
+
+        #endregion
 
     }
 }

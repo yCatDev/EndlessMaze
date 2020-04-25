@@ -14,7 +14,11 @@ namespace EndlessMazeGame.Entities
             {
                 Interval = 750
             };
-            _liveTimer.Elapsed += (sender, args) => Destroy();
+            _liveTimer.Elapsed += (sender, args) =>
+            {
+                Area.Grid.MakeCellEmpty(GetPosition());
+                Destroy();
+            };
             _liveTimer.Start();
         }
 

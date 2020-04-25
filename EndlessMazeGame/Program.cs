@@ -39,6 +39,8 @@ namespace EndlessMazeGame
             _engine.LoadArea(menu);//Load area
             
             _engine.Run();//Run game
+
+            
         }
         
         

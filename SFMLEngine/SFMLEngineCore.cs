@@ -18,6 +18,8 @@ namespace SFMLEngine
             _scaleFactor = scaleFactor;
             _window = new RenderWindow(new VideoMode((uint) (w*_scaleFactor), (uint)(h*_scaleFactor)), title);
             _font = new Font("arial.ttf");
+            ShowWindow(GetConsoleWindow(), SW_HIDE);
+            _window.Closed += (sender, args) => { Environment.Exit(0);};
         }
 
 

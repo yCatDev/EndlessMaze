@@ -28,7 +28,8 @@ namespace ConsoleEngine
             ++bufferInfo.srWindow.Bottom;
             SetConsoleScreenBufferInfoEx(stdHandle, ref bufferInfo);
             
-            SetFont();
+            SetFont(24);
+            AppDomain.CurrentDomain.ProcessExit += (sender, eventArgs) => { SetFont(16);};
         }
         
         protected override void OnRenderStart()
@@ -184,7 +185,7 @@ namespace ConsoleEngine
             internal fixed char FaceName[LF_FACESIZE];
         }
 
-        public unsafe void SetFont()
+        public unsafe void SetFont(short size)
         {
             string fontName = "MS Gothic";
             IntPtr hnd = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -201,7 +202,7 @@ namespace ConsoleEngine
                     IntPtr ptr = new IntPtr(newInfo.FaceName);
                     Marshal.Copy(fontName.ToCharArray(), 0, ptr, fontName.Length);
                     // Get some settings from current font.
-                    newInfo.dwFontSize = new Coord(24, 24);
+                    newInfo.dwFontSize = new Coord(size, size);
                     newInfo.FontWeight = info.FontWeight;
                     SetCurrentConsoleFontEx(hnd, false, newInfo);
                 }
