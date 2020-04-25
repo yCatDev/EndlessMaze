@@ -8,7 +8,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Start()
         {
-            SetNewGraphics("Treasure", Other.RandomColor(Color.Cyan, Color.Red, Color.Yellow));
+            SetNewGraphics("Treasure", Other.RandomColor(Color.Blue, Color.Red, Color.Yellow));
         }
 
         public override void Update()
