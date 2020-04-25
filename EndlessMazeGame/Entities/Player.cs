@@ -19,7 +19,7 @@ namespace EndlessMazeGame.Entities
         public override void Start()
         {
             LastMove = MoveDirection.None;
-            SetNewGraphics("Player", Color.Cyan);
+            SetNewGraphics("Player", Color.DarkBlue);
         }
 
         public void SetTreasures(int n) => CollectedTreasures = n;

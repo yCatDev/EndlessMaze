@@ -10,7 +10,7 @@ namespace EndlessMazeGame.Entities
     {
         private string[] _bombAnim;
         private int _animInd = 0;
-        private int TicksToBoom = 5;
+        private int TicksToBoom = 3;
         private Timer _animTimer;
         public bool Exploded = false;
         

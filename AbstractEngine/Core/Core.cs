@@ -16,7 +16,8 @@ namespace AbstractEngine.Core
         public readonly int WindowWidth, WindowHeight;
         public readonly string WindowTitle;
         private bool _clearScreenOnNextArea = true;
-        
+        protected Color _clearColor;
+
         protected AbstractCore(int w, int h, string title)
         {
             _grid = new GameGrid(w,h, this);
@@ -36,7 +37,7 @@ namespace AbstractEngine.Core
         }
 
 
-
+        public void SetBackgroundColor(Color color) => _clearColor = color;
 
         public void Run()    
         {

@@ -38,6 +38,7 @@ namespace ConsoleEngine
         {
             Console.SetCursorPosition(cellPos.X, cellPos.Y);
             Console.ForegroundColor = cell.GetColor<ConsoleColor>();
+            Console.BackgroundColor = (ConsoleColor) _clearColor;
             //Console.WriteLine(cellPos.ToString());
             if (cell.GetRenderObject<char>(out var res))
                 Console.Write(res);
@@ -49,7 +50,7 @@ namespace ConsoleEngine
 
         protected override void OnRenderEnd()
         {
-            Thread waitThread = new Thread(() =>Thread.Sleep(50));
+            Thread waitThread = new Thread(() =>Thread.Sleep(10));
             waitThread.Start();                    
             waitThread.Join();
         }

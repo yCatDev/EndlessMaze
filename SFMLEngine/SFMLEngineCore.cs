@@ -26,13 +26,17 @@ namespace SFMLEngine
         protected override void OnRenderStart()
         {
             _window.DispatchEvents();
-            _window.Clear(SFML.Graphics.Color.White);
+            _window.Clear(Colors[(int)_clearColor]);
         }
 
         protected override void OnRenderObject(Cell cell, Point cellPos)
         {
             if (cell.GetRenderObject<Drawable>(out var obj))
             {
+                if (obj is Shape shape)
+                    shape.FillColor = Colors[(int) cell.Data.Color];
+                if (obj is Text text)
+                    text.FillColor = Colors[(int) cell.Data.Color];
                 ((Transformable)obj).Position = new Vector2f(cellPos.X*_scaleFactor, cellPos.Y*_scaleFactor);
                 _window.Draw(obj);
             }
@@ -59,7 +63,7 @@ namespace SFMLEngine
 
         public override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
         {
-            var text = new Text(c.ToString(), _font, 24) {FillColor = SFML.Graphics.Color.Black};
+            var text = new Text(c.ToString(), _font, 24);
             var d = new CellData()
             {
                 RenderObject = new RenderObject(text),
@@ -67,5 +71,28 @@ namespace SFMLEngine
             };
             DrawPrimitive(d,nextPos);
         }
+
+        private readonly SFML.Graphics.Color[] Colors = new[]
+        {
+            SFML.Graphics.Color.Black,
+            new SFML.Graphics.Color(0, 0, 139),
+            new SFML.Graphics.Color(0, 100, 0),
+            new SFML.Graphics.Color(0, 139, 139),
+            new SFML.Graphics.Color(139, 0, 0),
+            new SFML.Graphics.Color(139, 0, 139),
+            new SFML.Graphics.Color(155, 135, 12),
+            new SFML.Graphics.Color(178, 190, 181),
+            new SFML.Graphics.Color(169, 169, 169),
+            SFML.Graphics.Color.Blue,
+            SFML.Graphics.Color.Green,
+            SFML.Graphics.Color.Cyan,
+            SFML.Graphics.Color.Red,
+            SFML.Graphics.Color.Magenta,
+            SFML.Graphics.Color.Yellow,
+            SFML.Graphics.Color.White
+        };
+        
+  
+        
     }
 }

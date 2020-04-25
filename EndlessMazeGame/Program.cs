@@ -7,6 +7,7 @@ using ConsoleEngine;
 using EndlessMazeGame.Areas;
 using SFML.Graphics;
 using SFML.System;
+using Color = AbstractEngine.Core.Base.Color;
 
 
 namespace EndlessMazeGame
@@ -22,7 +23,7 @@ namespace EndlessMazeGame
         [STAThread]
         static void Main(string[] args)
         {
-            if (!args.Contains("sfml"))//Check what mode you want
+            if (args.Contains("sfml"))//Check what mode you want
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
                 
@@ -33,6 +34,7 @@ namespace EndlessMazeGame
                 _engine = new SFMLEngine.SFMLEngine(WIDTH,HEIGHT, 25,TITLE);
                ResourceManger.LoadResourcesForSFMLEngine(_engine.Resources);
             }
+            _engine.SetBackgroundColor(Color.White);
             var menu = new MenuArea(_engine.GameGrid);//Create area
             _engine.LoadArea(menu);//Load area
             

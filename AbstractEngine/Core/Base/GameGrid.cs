@@ -59,7 +59,7 @@ namespace AbstractEngine.Core.Base
         public bool Updated;
        
         private CellData _data;
-        internal CellData Data => _data;
+        public CellData Data => _data;
         
         public Cell(Cell cell)
         {
@@ -128,7 +128,6 @@ namespace AbstractEngine.Core.Base
 
     public enum Color
     {
-        White,
         Black,
         DarkBlue,
         DarkGreen,
@@ -143,8 +142,11 @@ namespace AbstractEngine.Core.Base
         Cyan,
         Red,
         Magenta,
-        Yellow
+        Yellow,
+        White
     }
+    
+    
 
     public struct CellData
     {

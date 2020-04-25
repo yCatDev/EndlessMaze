@@ -18,7 +18,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Start()
         {
-            SetNewGraphics("MenuPointer");
+            SetNewGraphics("MenuPointer", Color.Black);
         }
 
         public override void Update()
