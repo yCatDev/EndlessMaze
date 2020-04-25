@@ -23,7 +23,7 @@ namespace EndlessMazeGame
         [STAThread]
         static void Main(string[] args)
         {
-            if (args.Contains("sfml"))//Check what mode you want
+            if (!args.Contains("sfml"))//Check what mode you want
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
                 
@@ -67,31 +67,33 @@ namespace EndlessMazeGame
             }
             public static void LoadResourcesForSFMLEngine(Resources resources)
             {
-                var b = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Black};
-                resources.RegisterResource("MenuBorderUL", b);
-                resources.RegisterResource("MenuBorderUR", b);
-                resources.RegisterResource("MenuBorderDL", b);
-                resources.RegisterResource("MenuBorderDR", b);
-                resources.RegisterResource("MenuBorderH", b);
-                resources.RegisterResource("MenuBorderV", b);
-                resources.RegisterResource("MenuPointer", b);
-                
-                Shape s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Red};
-                resources.RegisterResource("Treasure", s);
-                s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Magenta};
-                resources.RegisterResource("Player", s);
-                resources.RegisterResource("Block", b);
-                s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Green}; 
-                resources.RegisterResource("Stone", s);
-                s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Red};
-                resources.RegisterResource("ExpWave", s);
-                
-                s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Red};
-                resources.RegisterResource("Bomb1", s);
-                resources.RegisterResource("Bomb3", s);
-                s = new RectangleShape() {Size = new Vector2f(10,10), FillColor = SFML.Graphics.Color.Red};
-                resources.RegisterResource("Bomb2", s);
-                resources.RegisterResource("Bomb4", s);
+                Shape shape;
+                shape = new CircleShape(HEIGHT/2, 3){Rotation = 90};
+                resources.RegisterResource("MenuPointer", shape);
+                shape = new RectangleShape() {Size = new Vector2f(HEIGHT,HEIGHT)};
+
+                resources.RegisterResource("MenuBorderUL", shape);
+                resources.RegisterResource("MenuBorderUR", shape);
+                resources.RegisterResource("MenuBorderDL", shape);
+                resources.RegisterResource("MenuBorderDR", shape);
+                resources.RegisterResource("MenuBorderH", shape);
+                resources.RegisterResource("MenuBorderV", shape);
+
+                shape = new CircleShape(10, 4);
+                resources.RegisterResource("Treasure", shape);
+                shape = new CircleShape(HEIGHT / 2);
+                resources.RegisterResource("Player", shape);
+                shape = new RectangleShape() {Size = new Vector2f(HEIGHT,HEIGHT)};
+                resources.RegisterResource("Block", shape);
+                resources.RegisterResource("ExpWave", shape);
+
+                resources.RegisterResource("Bomb1",shape);
+                resources.RegisterResource("Bomb3", shape);
+                shape = new RectangleShape() {Size = new Vector2f(HEIGHT/2,HEIGHT/2)};
+                resources.RegisterResource("Bomb2", shape);
+                resources.RegisterResource("Bomb4", shape);
+                shape = new CircleShape(HEIGHT / 2, 6);
+                resources.RegisterResource("Stone", shape);
             }
         }
      

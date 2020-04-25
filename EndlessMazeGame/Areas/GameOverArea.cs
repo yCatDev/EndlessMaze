@@ -45,9 +45,9 @@ namespace EndlessMazeGame.Areas
             }
             
             Thread.Sleep(300);
-            Grid.Core.DrawTextInCenter("Press 'ESC' to return", 2, 9);
+            Grid.Core.DrawTextInCenter("Press 'ESC' to return", 2, 9, Color.Black);
             Thread.Sleep(300);
-            Grid.Core.DrawTextInCenter("Game over", 2, 7);
+            Grid.Core.DrawTextInCenter("Game over", 2, 7, Color.Black);
             _animEnd = true;
         }
         
