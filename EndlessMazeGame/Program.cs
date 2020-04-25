@@ -22,7 +22,7 @@ namespace EndlessMazeGame
         [STAThread]
         static void Main(string[] args)
         {
-            if (!args.Contains("sfml"))//Check what mode you want
+            if (args.Contains("sfml"))//Check what mode you want
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
                 

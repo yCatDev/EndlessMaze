@@ -19,9 +19,8 @@ namespace EndlessMazeGame.Areas
 
         public override void Init()
         {
-            Task.Factory.StartNew(AnimatedClear);
-
-
+            Thread thread = new Thread(new ThreadStart(AnimatedClear));
+            thread.Start();
         }
 
         private async void AnimatedClear()
@@ -40,14 +39,14 @@ namespace EndlessMazeGame.Areas
                 {
                     Grid.MakeCellEmpty(j,a[i]);
                     Grid.MakeCellEmpty((Grid.Width-1)-j,b[i]);
-                    await Task.Delay(1);
+                    Thread.Sleep(10);
                 }
                  
             }
             
-            await Task.Delay(300);
+            Thread.Sleep(300);
             Grid.Core.DrawTextInCenter("Press 'ESC' to return", 2, 9);
-            await Task.Delay(300);
+            Thread.Sleep(300);
             Grid.Core.DrawTextInCenter("Game over", 2, 8);
             _animEnd = true;
         }
