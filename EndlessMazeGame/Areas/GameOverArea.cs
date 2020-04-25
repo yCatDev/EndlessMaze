@@ -23,7 +23,7 @@ namespace EndlessMazeGame.Areas
             thread.Start();
         }
 
-        private async void AnimatedClear()
+        private void AnimatedClear()
         {
             List<int> a = new List<int>();
             List<int> b = new List<int>();
@@ -47,7 +47,7 @@ namespace EndlessMazeGame.Areas
             Thread.Sleep(300);
             Grid.Core.DrawTextInCenter("Press 'ESC' to return", 2, 9);
             Thread.Sleep(300);
-            Grid.Core.DrawTextInCenter("Game over", 2, 8);
+            Grid.Core.DrawTextInCenter("Game over", 2, 7);
             _animEnd = true;
         }
         

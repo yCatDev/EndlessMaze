@@ -14,7 +14,8 @@ namespace EndlessMazeGame.Entities
         public int CollectedTreasures = 0;
         public MoveDirection LastMove;
         private Bomb _bomb;
-
+        private bool _alive = true;
+        
         public override void Start()
         {
             LastMove = MoveDirection.None;
@@ -70,12 +71,19 @@ namespace EndlessMazeGame.Entities
 
             if (InputManger.OnKeyDown(VirtualKeys.Space) && _bomb==null)
                 SpawnBomb();
+            if (!_alive)
+                ReallyDie();
         }
 
-        public void Die()
+        private void ReallyDie()
         {
             Thread.Sleep(250);
             Area.Grid.Core.LoadArea(new GameOverArea(Area.Grid), false);
+        }
+        
+        public void Die()
+        {
+            _alive = false;
         }
         
         private void SpawnBomb()

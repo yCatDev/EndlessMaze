@@ -22,7 +22,7 @@ namespace EndlessMazeGame
         [STAThread]
         static void Main(string[] args)
         {
-            if (args.Contains("sfml"))//Check what mode you want
+            if (!args.Contains("sfml"))//Check what mode you want
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
                 
@@ -76,7 +76,7 @@ namespace EndlessMazeGame
                 
                 Shape s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Red};
                 resources.RegisterResource("Treasure", s);
-                s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Green};
+                s = new CircleShape {Radius = 10, FillColor = SFML.Graphics.Color.Magenta};
                 resources.RegisterResource("Player", s);
                 resources.RegisterResource("Block", b);
                 s = new RectangleShape() {Size = new Vector2f(25,25), FillColor = SFML.Graphics.Color.Green}; 

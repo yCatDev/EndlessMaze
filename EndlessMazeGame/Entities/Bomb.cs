@@ -80,6 +80,7 @@ namespace EndlessMazeGame.Entities
                     isPlayerInZone = true;
                 CreateEntity<BombWave>("ExplosionWave", point, Area);
             }
+            
             if (isPlayerInZone)
                 Area.FindEntity<Player>("Player")?.Die();
             Exploded = true;
