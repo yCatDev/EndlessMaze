@@ -47,6 +47,11 @@ namespace AbstractEngine.Core.Base
                 Cells[i0, i1] = new Cell(new RenderObject());
             }
         }
+
+        public void SetLevelGrid(Cell[,] output)
+        {
+            Cells = output;
+        }
     }
 
     public class Cell
@@ -155,22 +160,37 @@ namespace AbstractEngine.Core.Base
         public RenderObject(object _renderObject) => renderObject = _renderObject;
     }
     
+    [Serializable]
     public class Point
     {
-        public int X;
-        public int Y;
+        public int X { get; set; }
+        public int Y { get; set; }
 
+
+        public Point()
+        {
+            X = 0;
+            Y = 0;
+        }
         public Point(int x, int y)
         {
             X = x;
             Y = y;
         }
 
+        public Point(Point p)
+        {
+            X = p.X;
+            Y = p.Y;
+        }
+        
         public override string ToString()
         {
             return $"{X} {Y}";
         }
 
+        public Point Inverse() => new Point(Y,X);
+        
         public static int Distance(Point p1, Point p2)
             => (int)Math.Sqrt(Math.Pow(p2.X - p1.X, 2) +Math.Pow(p2.Y - p1.Y, 2));
 

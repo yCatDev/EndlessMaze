@@ -42,7 +42,7 @@ namespace EndlessMazeGame.Entities
             moveNext.X--;
             while (CheckExp(moveNext))
             {
-                positions.Add(new Point(moveNext.X, moveNext.Y));
+                positions.Add(new Point(moveNext));
                 moveNext.X--;
             }
 
@@ -50,7 +50,7 @@ namespace EndlessMazeGame.Entities
             moveNext.X++;
             while (CheckExp(moveNext))
             {
-                positions.Add(new Point(moveNext.X, moveNext.Y));
+                positions.Add(new Point(moveNext));
                 moveNext.X++;
             } 
             
@@ -58,7 +58,7 @@ namespace EndlessMazeGame.Entities
             moveNext.Y--;
             while (CheckExp(moveNext))
             {
-                positions.Add(new Point(moveNext.X, moveNext.Y));
+                positions.Add(new Point(moveNext));
                 moveNext.Y--;
             }
 
@@ -66,11 +66,11 @@ namespace EndlessMazeGame.Entities
             moveNext.Y++;
             while (CheckExp(moveNext))
             {
-                positions.Add(new Point(moveNext.X, moveNext.Y));
+                positions.Add(new Point(moveNext));
                 moveNext.Y++;
             }
 
-            var selfPos = new Point(GetPosition().X, GetPosition().Y);
+            var selfPos = new Point(GetPosition());
             Area.Grid.MakeCellEmpty(selfPos);
             positions.Add(selfPos);
             bool isPlayerInZone = false;

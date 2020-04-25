@@ -38,7 +38,7 @@ namespace AbstractEngine.Core.Base
             _gridPosition = new Point(x,y);
         }
 
-        public Point GetPosition() => new Point(_gridPosition.X, _gridPosition.Y);
+        public Point GetPosition() => new Point(_gridPosition);
 
 
         public abstract void Start();

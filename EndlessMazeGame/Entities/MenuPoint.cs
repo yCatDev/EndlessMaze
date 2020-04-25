@@ -51,7 +51,7 @@ namespace EndlessMazeGame.Entities
                         Area.Grid.Core.LoadArea(new GameArea(false, Area.Grid.Core.GameGrid));
                         break;
                     case 1:
-                        SetPosition(_menuContinue);
+                        Area.Grid.Core.LoadArea(new GameArea(true, Area.Grid.Core.GameGrid));
                         break;
                     case 2:
                         Environment.Exit(0);

@@ -45,7 +45,7 @@ namespace EndlessMazeGame.Areas
             e.DrawTextInCenter(e.WindowTitle, 2, 4, Color.Magenta);
             e.DrawTextInCenter("Total time in mazes", 2, 7);
 
-            var time = TimeSpan.FromMilliseconds(_saveSystem.SaveFile.timeInMaze).ToString(@"hh\:mm\:ss");
+            var time = TimeSpan.FromMilliseconds(_saveSystem.SaveFile.TimeInMaze).ToString(@"hh\:mm\:ss");
             e.DrawTextInCenter(time, 2, 8);
             e.DrawTextInCenter("Play", 2, 12, out var playPoint, Color.Green);
             e.DrawTextInCenter("Continue", 2, 13, out var continuePoint, Color.Yellow);

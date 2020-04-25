@@ -31,9 +31,9 @@ namespace EndlessMazeGame.Maze
             for (var i = 0; i < _width; i++)
             for (var j = 0; j < _height; j++)
                 if ((i % 2 != 0 && j % 2 != 0) && (i < _width - 1 && j < _height - 1)
-                ) //если ячейка нечетная по х и по у и не выходит за пределы лабиринта
+                ) 
                 {
-                    _cells[i, j] = new MazeCell(i, j); //то это клетка (по умолчанию)
+                    _cells[i, j] = new MazeCell(i, j); 
                 }
                 else
                 {
@@ -47,52 +47,54 @@ namespace EndlessMazeGame.Maze
         public void CreateMaze(out Point playerPos)
         {
             _cells[start.Position.X, start.Position.Y] = start;
-            while (_path.Count != 0) //пока в стеке есть клетки ищем соседей и строим путь
+            while (_path.Count != 0) //поки в стекі щось є шукаємо всі невідвіданній клітки
             {
                 _neighbours.Clear();
-                GetNeighbours(_path.Peek());
-                if (_neighbours.Count != 0)
+                GetNeighbours(_path.Peek());//_path.Peek() - тимчасова клітка, тобто остання в шляху
+                if (_neighbours.Count != 0) //Якщо клітка має сусідів 
                 {
-                    MazeCell nextCell = ChooseNeighbour(_neighbours);
-                    RemoveWall(_path.Peek(), nextCell);
-                    nextCell._isVisited = true; //делаем текущую клетку посещенной
-                    _cells[nextCell.Position.X, nextCell.Position.Y]._isVisited = true; //и в общем массиве
-                    _path.Push(nextCell); //затем добавляем её в стек
+                    MazeCell nextCell = ChooseNeighbour(_neighbours); //Обераємо сусіда
+                    RemoveWall(_path.Peek(), nextCell);//Видаляємо стіну між тимчасовою кліткою та обраною
+                    nextCell.IsVisited = true; //Відмічаємо обрану як відвідану
+                    _cells[nextCell.Position.X, nextCell.Position.Y].IsVisited = true;
+                    _path.Push(nextCell); //Зберігаємо обрану клітку до стеку та робимо її тимчасовою
                 }
                 else
                 {
-                    _path.Pop();
+                    _path.Pop(); //Інакше видаляємо останню клітку ти самим оновлюючи тимчасову
                 }
             }
             CreateMazeOnArea();
             playerPos = SpawnObjectsAndPlayer();
         }
-        private void GetNeighbours(MazeCell localcell) // Получаем соседа текущей клетки
+        private void GetNeighbours(MazeCell localcell) // Шукаємо сусідів тимчасової клітки
         {
             int x = localcell.Position.X;
             int y = localcell.Position.Y;
             const int distance = 2;
-            MazeCell[] possibleNeighbours = new[] // Список всех возможных соседeй
+            MazeCell[] possibleNeighbours = new[] // Список всіх можливих позицій сусідів
             {
                 new MazeCell(x, y - distance), // Up
                 new MazeCell(x + distance, y), // Right
                 new MazeCell(x, y + distance), // Down
                 new MazeCell(x - distance, y) // Left
             };
-            for (int i = 0; i < 4; i++) // Проверяем все 4 направления
+            for (int i = 0; i < 4; i++) // Перевіряємо всі напрямки
             {
                 MazeCell curNeighbour = possibleNeighbours[i];
-                if (curNeighbour.Position.X > 0 && curNeighbour.Position.X < _width && curNeighbour.Position.Y > 0 && curNeighbour.Position.Y < _height)
-                {// Если сосед не выходит за стенки лабиринта
-                    if (_cells[curNeighbour.Position.X, curNeighbour.Position.Y]._isCell && !_cells[curNeighbour.Position.X, curNeighbour.Position.Y]._isVisited)
-                    { // А также является клеткой и непосещен
+                if (curNeighbour.Position.X > 0 && curNeighbour.Position.X < _width 
+                                                && curNeighbour.Position.Y > 0 && curNeighbour.Position.Y < _height)
+                {// Перевіряємо чи сусід знаходиться в рамках лабіринту
+                    if (_cells[curNeighbour.Position.X, curNeighbour.Position.Y].IsEmpty 
+                        && !_cells[curNeighbour.Position.X, curNeighbour.Position.Y].IsVisited)
+                    { // А також чи являється пустою кліткою та не відвіданним
                         _neighbours.Add(curNeighbour);
-                    }// добавляем соседа в Лист соседей
+                    }// додаємо сусіда в список сусідів
                 }
             }
         }
         
-        private MazeCell ChooseNeighbour(List<MazeCell> neighbours) //выбор случайного соседа
+        private MazeCell ChooseNeighbour(List<MazeCell> neighbours)
         {
             int r = rnd.Next(neighbours.Count);
             return neighbours[r];
@@ -101,18 +103,18 @@ namespace EndlessMazeGame.Maze
         {
             int xDiff = second.Position.X - first.Position.X;
             int yDiff = second.Position.Y - first.Position.Y;
-            int addX = (xDiff != 0) ? xDiff / Math.Abs(xDiff) : 0; // Узнаем направление удаления стены
+            int addX = (xDiff != 0) ? xDiff / Math.Abs(xDiff) : 0; // Шукаємо напрямок видалення
             int addY = (yDiff != 0) ? yDiff / Math.Abs(yDiff) : 0;
-            // Координаты удаленной стены
-            _cells[first.Position.X + addX, first.Position.Y + addY]._isCell = true; //обращаем стену в клетку
-            _cells[first.Position.X + addX, first.Position.Y + addY]._isVisited = true; //и делаем ее посещенной
-            second._isVisited = true; //делаем клетку посещенной
+            
+            _cells[first.Position.X + addX, first.Position.Y + addY].IsEmpty = true; //робимо стіну - пустою кліткою
+            _cells[first.Position.X + addX, first.Position.Y + addY].IsVisited = true; //та відвіданною
+            second.IsVisited = true; //теж саме
             _cells[second.Position.X, second.Position.Y] = second;
         }
 
         private Point SpawnObjectsAndPlayer()
         {
-            var possiblePos = _cells.Cast<MazeCell>().Where(x => x._isCell)
+            var possiblePos = _cells.Cast<MazeCell>().Where(x => x.IsEmpty)
                 .Select(y => y.Position).ToList();
             var playrPos = possiblePos[new Random().Next(0, possiblePos.Count)];
             possiblePos.Remove(playrPos);
@@ -122,7 +124,7 @@ namespace EndlessMazeGame.Maze
             for (int i = 0; i < n; i++)
             {
                 var r = new Random().Next(0, possiblePos.Count);
-                var t = Entity.CreateEntity<Treasure>("Treasure", possiblePos[r], _area);
+                Entity.CreateEntity<Treasure>("Treasure", possiblePos[r], _area);
                 possiblePos.RemoveAt(r);
             }
 
@@ -132,7 +134,7 @@ namespace EndlessMazeGame.Maze
             for (int i = 0; i < n; i++)
             {
                 var r = new Random().Next(0, possiblePos.Count);
-                var t = Entity.CreateEntity<Stone>("Stone", possiblePos[r], _area);
+                Entity.CreateEntity<Stone>("Stone", possiblePos[r], _area);
                 possiblePos.RemoveAt(r);
             }
             
@@ -146,7 +148,7 @@ namespace EndlessMazeGame.Maze
             for (var j = 0; j < _cells.GetLength(1); j++)
             {
                 var mazeCell = _cells[i, j];
-                if (!mazeCell._isCell)
+                if (!mazeCell.IsEmpty)
                 {
                     Entity.CreateEntity<MazeBlock>($"Block{i}_{j}", new Point(i, j), _area);
                 }

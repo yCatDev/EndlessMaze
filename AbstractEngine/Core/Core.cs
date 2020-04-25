@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using AbstractEngine.Core.Base;
 
 namespace AbstractEngine.Core
@@ -67,6 +68,9 @@ namespace AbstractEngine.Core
                     Console.WriteLine(e.Message);
                     Console.WriteLine(e.StackTrace);
                     Console.WriteLine(e.Data);
+                    Thread.Sleep(10000);
+                    Console.ReadKey();
+                    
                     break;
                 }
             }
