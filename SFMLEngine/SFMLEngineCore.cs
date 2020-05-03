@@ -35,16 +35,10 @@ namespace SFMLEngine
         {
             if (cell.GetRenderObject<Drawable>(out var obj))
             {
-                switch (obj)
-                {
-                    case Shape shape:
-                        shape.FillColor = Colors[(int) cell.Data.Color];
-                        break;
-                    case Text text:
-                        text.FillColor = Colors[(int) cell.Data.Color];
-                        break;
-                }
-
+                if (obj is Shape shape)
+                    shape.FillColor = Colors[(int) cell.Data.Color];
+                if (obj is Text text)
+                    text.FillColor = Colors[(int) cell.Data.Color];
                 ((Transformable)obj).Position = new Vector2f(cellPos.X*_scaleFactor, cellPos.Y*_scaleFactor);
                 _window.Draw(obj);
             }

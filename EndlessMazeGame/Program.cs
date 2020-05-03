@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.InteropServices;
 using AbstractEngine.Core;
 using EndlessMazeGame.Areas;
 using SFML.Graphics;
@@ -20,7 +19,7 @@ namespace EndlessMazeGame
         
         static void Main(string[] args)
         {
-            if (args.Contains("sfml"))
+            if (!args.Contains("sfml"))
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, 24,TITLE);//Init engine what you want
                 ResourceManger.LoadResourcesForConsoleEngine(_engine.Resources);
@@ -36,9 +35,8 @@ namespace EndlessMazeGame
             _engine.LoadArea(menu);//Load area
             
             _engine.Run();//Run game
-           
         }
-       
+
 
         private static class ResourceManger
         {
