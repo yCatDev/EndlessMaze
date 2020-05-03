@@ -1,75 +1,80 @@
-﻿namespace AbstractEngine.Core.Base
+﻿using System;
+
+namespace AbstractEngine.Core.Base
 {
     public abstract class Entity
     {
-        private Point _gridPosition;
-
         public string Name;
+        public Area Area => _ownerArea;
+        
+        private Point _gridPosition;
+            
+        private Area _ownerArea;
+        
 
-
-        public Area Area { get; private set; }
+        protected Entity()
+        {
+            
+        }
 
         protected void SetNewGraphics(string resourceName, Color color = Color.White)
         {
-            Area.Grid[_gridPosition] = new Cell(new CellData
-            {
-                RenderObject = Area.GetResource(resourceName),
+            _ownerArea.Grid[_gridPosition] = new Cell(new CellData(){
+                RenderObject = _ownerArea.GetResource(resourceName),
                 Color = color,
                 EntityName = Name
             });
         }
 
-        protected void SetPosition(Point position)
-        {
-            SetPosition(position.X, position.Y);
-        }
+        protected void SetPosition(Point position) => SetPosition(position.X, position.Y);
 
         private void SetPosition(int x, int y)
         {
-            if (x >= Area.Grid.Width || y >= Area.Grid.Heigth
-                                     || x < 0 || y < 0) return;
-
-            var data = Area.Grid[_gridPosition];
-            Area.Grid.MakeCellEmpty(_gridPosition);
-            Area.Grid[x, y] = new Cell(data);
-            _gridPosition = new Point(x, y);
+            if ((x>=_ownerArea.Grid.Width || y>=_ownerArea.Grid.Heigth)
+                || x<0 || y<0) return;
+            
+            var data = _ownerArea.Grid[_gridPosition];
+            _ownerArea.Grid.MakeCellEmpty(_gridPosition);
+            _ownerArea.Grid[x, y] = new Cell(data);
+            _gridPosition = new Point(x,y);
         }
 
-        public Point GetPosition()
-        {
-            return new Point(_gridPosition);
-        }
+        public Point GetPosition() => new Point(_gridPosition);
 
 
         protected virtual void Start()
         {
+            
         }
 
         public virtual void Update()
         {
+            
         }
 
         public static T CreateEntity<T>(string name, Point startPos, Area area) where T : Entity, new()
         {
-            var e = new T
+            var e = new T()
             {
                 Name = name,
                 _gridPosition = startPos,
-                Area = area
+                _ownerArea = area,
             };
-
-
-            e.Area.Grid[e._gridPosition].SetName(e.Name);
-            e.Area.RegEntity(e);
+            
+            
+            e._ownerArea.Grid[e._gridPosition].SetName(e.Name);
+            e._ownerArea.RegEntity(e);
             e.Start();
             return e;
         }
 
         public virtual void Destroy(bool clearCell = true)
         {
-            Area.DeleteEntity(this);
+            _ownerArea.DeleteEntity(this);
             if (clearCell)
-                Area.Grid.MakeCellEmpty(_gridPosition);
+                _ownerArea.Grid.MakeCellEmpty(_gridPosition);
         }
     }
+
+   
 }

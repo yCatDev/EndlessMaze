@@ -4,13 +4,13 @@ using AbstractEngine.Core.Base;
 
 namespace EndlessMazeGame.Entities
 {
-    public class Bomb : Entity
+    public class Bomb: Entity
     {
-        private int _animInd;
-        private Timer _animTimer;
         private string[] _bombAnim;
+        private int _animInd = 0;
         private int _ticksToBoom = 3;
-        public bool Exploded;
+        private Timer _animTimer;
+        public bool Exploded = false;
 
         protected override void Start()
         {
@@ -26,7 +26,10 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
-            if (_ticksToBoom < 0) Boom();
+            if (_ticksToBoom < 0)
+            {
+                Boom();
+            }
         }
 
         private void Boom()
@@ -47,8 +50,8 @@ namespace EndlessMazeGame.Entities
             {
                 positions.Add(new Point(moveNext));
                 moveNext.X++;
-            }
-
+            } 
+            
             moveNext = GetPosition();
             moveNext.Y--;
             while (CheckExp(moveNext))
@@ -68,25 +71,23 @@ namespace EndlessMazeGame.Entities
             var selfPos = new Point(GetPosition());
             Area.Grid.MakeCellEmpty(selfPos);
             positions.Add(selfPos);
-            var isPlayerInZone = false;
+            bool isPlayerInZone = false;
             foreach (var point in positions)
             {
                 if (Area.Grid[point].IsName("Player"))
                     isPlayerInZone = true;
                 CreateEntity<BombWave>("ExplosionWave", point, Area);
             }
-
+            
             if (isPlayerInZone)
                 Area.FindEntity<Player>("Player")?.Die();
             Exploded = true;
         }
 
-        private bool CheckExp(Point p)
-        {
-            return Area.Grid[p].GetName().Contains("Stone") || Area.Grid[p].GetName().Contains("Player")
-                                                            || string.IsNullOrEmpty(Area.Grid[p].GetName());
-        }
-
+        private bool CheckExp(Point p) =>
+            (Area.Grid[p].GetName().Contains("Stone") || Area.Grid[p].GetName().Contains("Player")) 
+                || string.IsNullOrEmpty( Area.Grid[p].GetName());
+        
         public override void Destroy(bool clearCell = true)
         {
             _animTimer.Dispose();
@@ -97,9 +98,9 @@ namespace EndlessMazeGame.Entities
         {
             SetNewGraphics(_bombAnim[_animInd], Color.Red);
             _animInd++;
-
+            
             if (_animInd <= 3) return;
-
+            
             _animInd = 0;
             _ticksToBoom--;
         }

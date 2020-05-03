@@ -4,12 +4,12 @@ using EndlessMazeGame.Areas;
 
 namespace EndlessMazeGame.Entities
 {
-    public class MenuPoint : Entity
+    public class MenuPoint: Entity
     {
-        private bool _canContinue;
-        private int _index;
         private Point _menuPlay, _menuContinue, _menuExit;
-
+        private int _index = 0;
+        private bool _canContinue = false;
+        
         public void SetMenuPoints(Point play, Point @continue, Point exit)
         {
             _menuPlay = play;
@@ -29,19 +29,23 @@ namespace EndlessMazeGame.Entities
                 if (_index < 2)
                     _index++;
                 else
+                {
                     return;
-            }
-            else if (InputManger.OnKeyDown(VirtualKeys.Up))
+                }
+            }else
+            if (InputManger.OnKeyDown(VirtualKeys.Up))
             {
                 if (_index > 0)
                     _index--;
                 else
+                {
                     return;
+                }
             }
-
             UpdatePosition();
 
             if (InputManger.OnKeyDown(VirtualKeys.Space) || InputManger.OnKeyDown(VirtualKeys.Return))
+            {
                 switch (_index)
                 {
                     case 0:
@@ -55,13 +59,11 @@ namespace EndlessMazeGame.Entities
                         Environment.Exit(0);
                         break;
                 }
+            }
         }
 
-        public void EnableContinue()
-        {
-            _canContinue = true;
-        }
-
+        public void EnableContinue() => _canContinue = true;
+        
         private void UpdatePosition()
         {
             switch (_index)

@@ -3,7 +3,7 @@ using AbstractEngine.Core.Base;
 
 namespace EndlessMazeGame.Entities
 {
-    public class Treasure : Entity
+    public class Treasure: Entity
     {
         protected override void Start()
         {
@@ -13,6 +13,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
+            
         }
     }
 }

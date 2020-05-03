@@ -3,14 +3,14 @@ using AbstractEngine.Core.Base;
 
 namespace EndlessMazeGame.Entities
 {
-    public class BombWave : Entity
+    public class BombWave: Entity
     {
         private Timer _liveTimer;
 
         protected override void Start()
         {
             SetNewGraphics("ExpWave", Color.Red);
-            _liveTimer = new Timer
+            _liveTimer = new Timer()
             {
                 Interval = 750
             };

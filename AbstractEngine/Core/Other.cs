@@ -6,9 +6,7 @@ namespace AbstractEngine.Core
     public static class Other
     {
         public static int GetCenterStartPositionForText(string text, int windowWidth)
-        {
-            return (windowWidth - text.Length) / 2;
-        }
+            => (windowWidth - text.Length) / 2 ;
 
         public static Color RandomColor(params Color[] fromColors)
         {
