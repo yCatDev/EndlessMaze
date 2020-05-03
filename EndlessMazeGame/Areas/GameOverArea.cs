@@ -58,7 +58,7 @@ namespace EndlessMazeGame.Areas
 
         public override void Update()
         {
-            if (_animEnd&&InputManger.OnKeyDown(VirtualKeys.Escape))
+            if (_animEnd&&InputManager.OnKeyDown(VirtualKeys.Escape))
                 Grid.Core.LoadArea(new MenuArea(Grid));
         }
     }

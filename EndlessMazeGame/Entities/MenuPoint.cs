@@ -24,7 +24,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
-            if (InputManger.OnKeyDown(VirtualKeys.Down))
+            if (InputManager.OnKeyDown(VirtualKeys.Down))
             {
                 if (_index < 2)
                     _index++;
@@ -33,7 +33,7 @@ namespace EndlessMazeGame.Entities
                     return;
                 }
             }else
-            if (InputManger.OnKeyDown(VirtualKeys.Up))
+            if (InputManager.OnKeyDown(VirtualKeys.Up))
             {
                 if (_index > 0)
                     _index--;
@@ -44,7 +44,7 @@ namespace EndlessMazeGame.Entities
             }
             UpdatePosition();
 
-            if (InputManger.OnKeyDown(VirtualKeys.Space) || InputManger.OnKeyDown(VirtualKeys.Return))
+            if (InputManager.OnKeyDown(VirtualKeys.Space) || InputManager.OnKeyDown(VirtualKeys.Return))
             {
                 switch (_index)
                 {

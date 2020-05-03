@@ -122,8 +122,7 @@ namespace AbstractEngine.Core.Base
             var result = true;
             try
             {
-                if (_data.RenderObject != null)
-                    obj = (T) Convert.ChangeType(_data.RenderObject.renderObject, typeof(T));
+                obj = (T) Convert.ChangeType(_data.RenderObject.renderObject, typeof(T));
             }
             catch (Exception)
             {

@@ -32,7 +32,7 @@ namespace EndlessMazeGame.Entities
                 _bomb = null;
             
             var t = GetPosition();
-            if (InputManger.OnKeyDown(VirtualKeys.Down))
+            if (InputManager.OnKeyDown(VirtualKeys.Down))
             {
                t.Y++;
                 if (t.Y <= e.WindowHeight)
@@ -41,7 +41,7 @@ namespace EndlessMazeGame.Entities
                     _lastMove = MoveDirection.Down;
                 }
             }
-            if (InputManger.OnKeyDown(VirtualKeys.Up))
+            if (InputManager.OnKeyDown(VirtualKeys.Up))
             {
                t.Y--;
                 if (t.Y >= 0)
@@ -50,7 +50,7 @@ namespace EndlessMazeGame.Entities
                     _lastMove = MoveDirection.Up;
                 } 
             }
-            if (InputManger.OnKeyDown(VirtualKeys.Left))
+            if (InputManager.OnKeyDown(VirtualKeys.Left))
             {
                 t.X--;
                 if (t.X>= 0 )
@@ -59,7 +59,7 @@ namespace EndlessMazeGame.Entities
                     _lastMove = MoveDirection.Left;
                 }
             }
-            if (InputManger.OnKeyDown(VirtualKeys.Right))
+            if (InputManager.OnKeyDown(VirtualKeys.Right))
             { 
                 t.X++;
                 if (t.X  <= e.WindowWidth)
@@ -69,7 +69,7 @@ namespace EndlessMazeGame.Entities
                 }
             }
 
-            if (InputManger.OnKeyDown(VirtualKeys.Space) && _bomb==null)
+            if (InputManager.OnKeyDown(VirtualKeys.Space) && _bomb==null)
                 SpawnBomb();
             if (!_alive)
                 ReallyDie();

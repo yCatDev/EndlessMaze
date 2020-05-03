@@ -61,7 +61,7 @@ namespace EndlessMazeGame.Areas
             AddTime();
             Grid.Core.DrawText($"Treasurse in maze: x{_player.CollectedTreasures}   ECS to exit"
                 , new Point(0, Grid.Heigth-1), Color.Black);
-            if (InputManger.OnKeyDown(VirtualKeys.Escape))
+            if (InputManager.OnKeyDown(VirtualKeys.Escape))
             {
                 
                 Grid.Core.LoadArea(new MenuArea(Grid));

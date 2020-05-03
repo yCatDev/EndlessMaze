@@ -54,9 +54,7 @@ namespace ConsoleEngine
 
         protected override void OnRenderEnd()
         {
-            var waitThread = new Thread(() => Thread.Sleep(10));
-            waitThread.Start();
-            waitThread.Join();
+            
         }
 
         protected override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)

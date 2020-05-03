@@ -23,7 +23,7 @@ namespace AbstractEngine.Core
             _grid = new GameGrid(w,h, this);
             _delta = new Stopwatch();
             Resources = new Resources();
-            InputManger.RegisterInput();
+            
             WindowHeight = h;
             WindowWidth = w;
             WindowTitle = title;
@@ -44,8 +44,7 @@ namespace AbstractEngine.Core
             _delta.Start();
             while (true)
             {
-                
-                    if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
+                if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
                     if (_tmpArea != null)
                     {
                         _currentArea?.Unload(_clearScreenOnNextArea);
@@ -53,15 +52,14 @@ namespace AbstractEngine.Core
                         _tmpArea = null;
                         _currentArea.Init();
                     }
+                    InputManager.WaitForUp();
                     _currentArea?.Update();
                     _currentArea?.UpdateEntities();
                     OnRenderStart();
                     Render();
                     OnRenderEnd();
-                    
-
+                
                     _delta.Restart();
-              
             }
         }
 
