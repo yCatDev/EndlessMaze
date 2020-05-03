@@ -2,7 +2,7 @@
 
 namespace EndlessMazeGame.Entities
 {
-    public class MazeBlock:Entity
+    public class MazeBlock : Entity
     {
         protected override void Start()
         {
@@ -11,7 +11,6 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
-            
         }
     }
 }
