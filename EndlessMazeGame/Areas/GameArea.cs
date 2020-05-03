@@ -2,20 +2,19 @@
 using AbstractEngine.Core.Base;
 using EndlessMazeGame.Entities;
 
-
 namespace EndlessMazeGame.Areas
 {
-    public class GameArea: Area
+    public class GameArea : Area
     {
+        private Stopwatch _clock;
+        private readonly bool _continue;
         private Maze.Maze _maze;
         private Player _player;
         private SaveSystem _saveSystem;
-        private bool _continue = false;
-        private Stopwatch _clock;
-        
+
         public GameArea(bool @continue, GameGrid gameGrid) : base(gameGrid)
         {
-            this._continue = @continue;
+            _continue = @continue;
         }
 
         public override void Init()
@@ -28,15 +27,13 @@ namespace EndlessMazeGame.Areas
 
                 _player = Entity.CreateEntity<Player>("Player", player, this);
                 _player.SetTreasures(_maze.TreasuresNum);
-                
+
                 _saveSystem.SaveFile.LevelSaveData.SaveLevel(Grid);
             }
             else
             {
                 foreach (var point in _saveSystem.SaveFile.LevelSaveData.BlockPositions)
-                {
-                    Entity.CreateEntity<MazeBlock>($"Block", point.Point, this);
-                }
+                    Entity.CreateEntity<MazeBlock>("Block", point.Point, this);
 
                 var t = 0;
                 foreach (var point in _saveSystem.SaveFile.LevelSaveData.TreasurePositions)
@@ -44,14 +41,15 @@ namespace EndlessMazeGame.Areas
                     Entity.CreateEntity<Treasure>("Treasure", point.Point, this);
                     t++;
                 }
+
                 foreach (var point in _saveSystem.SaveFile.LevelSaveData.StonePositions)
-                {
                     Entity.CreateEntity<Stone>("Stone", point.Point, this);
-                }
-                
-                _player = Entity.CreateEntity<Player>("Player", _saveSystem.SaveFile.LevelSaveData.PlayerPosition.Point, this);
+
+                _player = Entity.CreateEntity<Player>("Player", _saveSystem.SaveFile.LevelSaveData.PlayerPosition.Point,
+                    this);
                 _player.SetTreasures(t);
             }
+
             _clock = new Stopwatch();
             _clock.Start();
         }
@@ -60,25 +58,17 @@ namespace EndlessMazeGame.Areas
         {
             AddTime();
             Grid.Core.DrawText($"Treasurse in maze: x{_player.CollectedTreasures}   ECS to exit"
-                , new Point(0, Grid.Heigth-1), Color.Black);
-            if (InputManger.OnKeyDown(VirtualKeys.Escape))
-            {
-                
-                Grid.Core.LoadArea(new MenuArea(Grid));
-            }
+                , new Point(0, Grid.Heigth - 1), Color.Black);
+            if (InputManger.OnKeyDown(VirtualKeys.Escape)) Grid.Core.LoadArea(new MenuArea(Grid));
 
-            if (_player.CollectedTreasures == 0)
-            {
-                Grid.Core.LoadArea(new GameArea(false, Grid));
-            }
+            if (_player.CollectedTreasures == 0) Grid.Core.LoadArea(new GameArea(false, Grid));
         }
-         
+
         private void AddTime()
         {
-            _saveSystem.SaveFile.TimeInMaze += (int)_clock.Elapsed.TotalMilliseconds;
+            _saveSystem.SaveFile.TimeInMaze += (int) _clock.Elapsed.TotalMilliseconds;
             _saveSystem.Save();
             _clock.Restart();
         }
-        
     }
 }

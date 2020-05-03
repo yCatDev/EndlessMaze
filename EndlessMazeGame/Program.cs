@@ -1,40 +1,39 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using AbstractEngine.Core;
 using EndlessMazeGame.Areas;
 using SFML.Graphics;
 using SFML.System;
 using Color = AbstractEngine.Core.Base.Color;
 
-
 namespace EndlessMazeGame
 {
-    class Program
+    internal class Program
     {
-        private static AbstractCore _engine;
-        
         private const int WIDTH = 40;
         private const int HEIGHT = 20;
         private const string TITLE = "Endless maze";
-        
-        static void Main(string[] args)
+        private static AbstractCore _engine;
+
+        private static void Main(string[] args)
         {
+            //Init engine
             if (!args.Contains("sfml"))
             {
-                _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, 24,TITLE);//Init engine what you want
+                _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, 24, TITLE);
                 ResourceManger.LoadResourcesForConsoleEngine(_engine.Resources);
             }
             else
             {
-                _engine = new SFMLEngine.SFMLEngine(WIDTH,HEIGHT, 25,TITLE);
-               ResourceManger.LoadResourcesForSfmlEngine(_engine.Resources);
+                _engine = new SFMLEngine.SFMLEngine(WIDTH, HEIGHT, 25, TITLE);
+                ResourceManger.LoadResourcesForSfmlEngine(_engine.Resources);
             }
 
+            //Run game
             _engine.SetBackgroundColor(Color.White);
-            var menu = new MenuArea(_engine.GameGrid);//Create area
-            _engine.LoadArea(menu);//Load area
-            
-            _engine.Run();//Run game
+            var menu = new MenuArea(_engine.GameGrid);
+            _engine.LoadArea(menu);
+
+            _engine.Run();
         }
 
 
@@ -49,24 +48,25 @@ namespace EndlessMazeGame
                 resources.RegisterResource("MenuBorderH", '═');
                 resources.RegisterResource("MenuBorderV", '║');
                 resources.RegisterResource("MenuPointer", '>');
-                
+
                 resources.RegisterResource("Treasure", '▒');
                 resources.RegisterResource("Player", '#');
                 resources.RegisterResource("Block", '█');
                 resources.RegisterResource("Stone", '@');
                 resources.RegisterResource("ExpWave", '█');
-                
+
                 resources.RegisterResource("Bomb1", '/');
                 resources.RegisterResource("Bomb2", '-');
                 resources.RegisterResource("Bomb3", @"\");
                 resources.RegisterResource("Bomb4", '|');
             }
+
             public static void LoadResourcesForSfmlEngine(Resources resources)
             {
                 Shape shape;
-                shape = new CircleShape(HEIGHT/2, 3){Rotation = 90};
+                shape = new CircleShape(HEIGHT / 2, 3) {Rotation = 90};
                 resources.RegisterResource("MenuPointer", shape);
-                shape = new RectangleShape() {Size = new Vector2f(HEIGHT,HEIGHT)};
+                shape = new RectangleShape {Size = new Vector2f(HEIGHT, HEIGHT)};
 
                 resources.RegisterResource("MenuBorderUL", shape);
                 resources.RegisterResource("MenuBorderUR", shape);
@@ -79,20 +79,18 @@ namespace EndlessMazeGame
                 resources.RegisterResource("Treasure", shape);
                 shape = new CircleShape(HEIGHT / 2);
                 resources.RegisterResource("Player", shape);
-                shape = new RectangleShape() {Size = new Vector2f(HEIGHT,HEIGHT)};
+                shape = new RectangleShape {Size = new Vector2f(HEIGHT, HEIGHT)};
                 resources.RegisterResource("Block", shape);
                 resources.RegisterResource("ExpWave", shape);
 
-                resources.RegisterResource("Bomb1",shape);
+                resources.RegisterResource("Bomb1", shape);
                 resources.RegisterResource("Bomb3", shape);
-                shape = new RectangleShape() {Size = new Vector2f(HEIGHT/2,HEIGHT/2)};
+                shape = new RectangleShape {Size = new Vector2f(HEIGHT / 2, HEIGHT / 2)};
                 resources.RegisterResource("Bomb2", shape);
                 resources.RegisterResource("Bomb4", shape);
                 shape = new CircleShape(HEIGHT / 2, 6);
                 resources.RegisterResource("Stone", shape);
             }
         }
-     
     }
-    
 }

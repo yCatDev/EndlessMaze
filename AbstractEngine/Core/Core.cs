@@ -7,20 +7,17 @@ namespace AbstractEngine.Core
 {
     public abstract class AbstractCore
     {
-        private readonly GameGrid _grid;
-        
-        public GameGrid GameGrid => _grid;
-        private Area _currentArea, _tmpArea;
         private readonly Stopwatch _delta;
         public readonly Resources Resources;
-        public readonly int WindowWidth, WindowHeight;
         public readonly string WindowTitle;
+        public readonly int WindowWidth, WindowHeight;
         private bool _clearScreenOnNextArea = true;
+        private Area _currentArea, _tmpArea;
         protected Color ClearColor;
 
         protected AbstractCore(int w, int h, string title)
         {
-            _grid = new GameGrid(w,h, this);
+            GameGrid = new GameGrid(w, h, this);
             _delta = new Stopwatch();
             Resources = new Resources();
             InputManger.RegisterInput();
@@ -30,6 +27,8 @@ namespace AbstractEngine.Core
             _tmpArea = null;
         }
 
+        public GameGrid GameGrid { get; }
+
         public void LoadArea(Area area, bool clearScreen = true)
         {
             _tmpArea = area;
@@ -37,48 +36,49 @@ namespace AbstractEngine.Core
         }
 
 
-        public void SetBackgroundColor(Color color) => ClearColor = color;
+        public void SetBackgroundColor(Color color)
+        {
+            ClearColor = color;
+        }
 
-        public void Run()    
+        public void Run()
         {
             _delta.Start();
             while (true)
             {
-                
-                    if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
-                    if (_tmpArea != null)
-                    {
-                        _currentArea?.Unload(_clearScreenOnNextArea);
-                        _currentArea = _tmpArea;
-                        _tmpArea = null;
-                        _currentArea.Init();
-                    }
-                    _currentArea?.Update();
-                    _currentArea?.UpdateEntities();
-                    OnRenderStart();
-                    Render();
-                    OnRenderEnd();
-                    
+                if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
+                if (_tmpArea != null)
+                {
+                    _currentArea?.Unload(_clearScreenOnNextArea);
+                    _currentArea = _tmpArea;
+                    _tmpArea = null;
+                    _currentArea.Init();
+                }
 
-                    _delta.Restart();
-              
+                _currentArea?.Update();
+                _currentArea?.UpdateEntities();
+                OnRenderStart();
+                Render();
+                OnRenderEnd();
+
+
+                _delta.Restart();
             }
         }
 
         private void Render()
         {
-            var all = _grid.SelectAll();
-            
+            var all = GameGrid.SelectAll();
+
             for (var i0 = 0; i0 < all.GetLength(0); i0++)
             for (var i1 = 0; i1 < all.GetLength(1); i1++)
             {
                 var cell = all[i0, i1];
-                
+
                 OnRenderObject(cell, new Point(i0, i1));
-                
             }
         }
-        
+
         public void DrawText(string text, Point position, Color textColor = Color.White)
         {
             var cs = text.ToCharArray();
@@ -92,24 +92,25 @@ namespace AbstractEngine.Core
 
         public void DrawTextInCenter(string text, int offset, int y, Color textColor = Color.White)
         {
-            DrawText(text, new Point(Other.GetCenterStartPositionForText(text,WindowWidth),y), textColor);
+            DrawText(text, new Point(Other.GetCenterStartPositionForText(text, WindowWidth), y), textColor);
         }
-        public void DrawTextInCenter(string text, int offset, int y, out Point textStartPos, Color textColor = Color.White)
+
+        public void DrawTextInCenter(string text, int offset, int y, out Point textStartPos,
+            Color textColor = Color.White)
         {
             var t = new Point(Other.GetCenterStartPositionForText(text, WindowWidth), y);
-            textStartPos = new Point(t.X-1, y);
-            DrawText(text, t,textColor);
+            textStartPos = new Point(t.X - 1, y);
+            DrawText(text, t, textColor);
         }
 
         protected virtual void OnRenderStart()
         {
-            
         }
+
         protected abstract void OnRenderObject(Cell cell, Point cellPos);
 
         protected virtual void OnRenderEnd()
         {
-            
         }
 
         public void DrawPrimitive(CellData data, Point cellPos)
@@ -129,14 +130,13 @@ namespace AbstractEngine.Core
 
         [DllImport("kernel32.dll")]
         protected static extern IntPtr GetConsoleWindow();
-        
+
         [DllImport("user32.dll")]
         protected static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        
+
         protected const int SW_HIDE = 0;
         protected const int SW_SHOW = 5;
 
         #endregion
-
     }
 }
