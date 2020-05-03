@@ -20,6 +20,7 @@ namespace SFMLEngine
             _font = new Font("arial.ttf");
             ShowWindow(GetConsoleWindow(), SW_HIDE);
             _window.Closed += (sender, args) => { Environment.Exit(0);};
+            _window.SetActive(false); //Workaround for threading
         }
 
 

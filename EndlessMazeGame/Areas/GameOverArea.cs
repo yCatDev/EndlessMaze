@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -21,7 +22,7 @@ namespace EndlessMazeGame.Areas
         {
             var save = new SaveSystem();
             save.ClearLevel();
-            
+
             var thread = new Thread(AnimatedClear);
             thread.Start();
         }
@@ -44,7 +45,6 @@ namespace EndlessMazeGame.Areas
                     Grid.MakeCellEmpty((Grid.Width-1)-j,b[i]);
                     Thread.Sleep(10);
                 }
-                 
             }
             
             Thread.Sleep(300);
@@ -54,7 +54,7 @@ namespace EndlessMazeGame.Areas
             _animEnd = true;
         }
         
-
+        
 
         public override void Update()
         {
