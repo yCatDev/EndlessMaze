@@ -4,8 +4,7 @@ namespace EndlessMazeGame.Entities
 {
     public class Stone:Entity
     {
-
-        public override void Start()
+        protected override void Start()
         {
             SetNewGraphics("Stone", Color.Black);
         }

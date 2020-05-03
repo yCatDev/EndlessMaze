@@ -12,13 +12,13 @@ namespace EndlessMazeGame.Entities
             None,Up, Down, Left, Right
         }
         public int CollectedTreasures = 0;
-        public MoveDirection LastMove;
+        private MoveDirection _lastMove;
         private Bomb _bomb;
         private bool _alive = true;
-        
-        public override void Start()
+
+        protected override void Start()
         {
-            LastMove = MoveDirection.None;
+            _lastMove = MoveDirection.None;
             SetNewGraphics("Player", Color.DarkBlue);
         }
 
@@ -38,7 +38,7 @@ namespace EndlessMazeGame.Entities
                 if (t.Y <= e.WindowHeight)
                 {
                     Move(t);
-                    LastMove = MoveDirection.Down;
+                    _lastMove = MoveDirection.Down;
                 }
             }
             if (InputManger.OnKeyDown(VirtualKeys.Up))
@@ -47,7 +47,7 @@ namespace EndlessMazeGame.Entities
                 if (t.Y >= 0)
                 {
                     Move(t);
-                    LastMove = MoveDirection.Up;
+                    _lastMove = MoveDirection.Up;
                 } 
             }
             if (InputManger.OnKeyDown(VirtualKeys.Left))
@@ -56,7 +56,7 @@ namespace EndlessMazeGame.Entities
                 if (t.X>= 0 )
                 {
                     Move(t);
-                    LastMove = MoveDirection.Left;
+                    _lastMove = MoveDirection.Left;
                 }
             }
             if (InputManger.OnKeyDown(VirtualKeys.Right))
@@ -65,7 +65,7 @@ namespace EndlessMazeGame.Entities
                 if (t.X  <= e.WindowWidth)
                 {
                     Move(t);
-                    LastMove = MoveDirection.Right;
+                    _lastMove = MoveDirection.Right;
                 }
             }
 
@@ -89,8 +89,8 @@ namespace EndlessMazeGame.Entities
         private void SpawnBomb()
         {
             var t = GetPosition();
-            Point to = Point.Zero;
-            switch (LastMove)
+            var to = Point.Zero;
+            switch (_lastMove)
             {
                 
                 case MoveDirection.None:

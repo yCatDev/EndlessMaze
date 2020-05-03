@@ -5,29 +5,30 @@ namespace AbstractEngine.Core.Base
 {
     public class GameGrid
     {
-        internal Cell[,] Cells;
-        public int Width, Heigth;
-        public AbstractCore Core;
+        private Cell[,] _cells;
+        public readonly int Width;
+        public readonly int Heigth;
+        public readonly AbstractCore Core;
 
         public Cell this[int i, int j]
         {
-            get { return Cells[(uint) i, (uint) j]; }
-            set { Cells[(uint) i, (uint) j] = value; }
+            get => _cells[(uint) i, (uint) j];
+            set => _cells[(uint) i, (uint) j] = value;
         }
 
         public Cell this[Point p]
         {
-            get { return Cells[(uint) p.X, (uint) p.Y]; }
-            set { Cells[(uint) p.X, (uint) p.Y] = value; }
+            get => _cells[(uint) p.X, (uint) p.Y];
+            set => _cells[(uint) p.X, (uint) p.Y] = value;
         }
 
         public void MakeCellEmpty(Point point) => MakeCellEmpty(point.X, point.Y);
-        public Cell[] SelectUpdated() => Cells.Cast<Cell>().Where(x => x.Updated).ToArray();
-        public Cell[,] SelectAll() => Cells;
+        public Cell[] SelectUpdated() => _cells.Cast<Cell>().Where(x => x.Updated).ToArray();
+        public Cell[,] SelectAll() => _cells;
 
         public void MakeCellEmpty(int x, int y)
         {
-            Cells[x, y] = new Cell();
+            _cells[x, y] = new Cell();
         }
 
         public GameGrid(int w, int h, AbstractCore core)
@@ -40,17 +41,17 @@ namespace AbstractEngine.Core.Base
 
         public void Clear()
         {
-            Cells = new Cell[Width, Heigth];
-            for (var i0 = 0; i0 < Cells.GetLength(0); i0++)
-            for (var i1 = 0; i1 < Cells.GetLength(1); i1++)
+            _cells = new Cell[Width, Heigth];
+            for (var i0 = 0; i0 < _cells.GetLength(0); i0++)
+            for (var i1 = 0; i1 < _cells.GetLength(1); i1++)
             {
-                Cells[i0, i1] = new Cell(new RenderObject());
+                _cells[i0, i1] = new Cell(new RenderObject());
             }
         }
 
         public void SetLevelGrid(Cell[,] output)
         {
-            Cells = output;
+            _cells = output;
         }
     }
 
@@ -59,11 +60,24 @@ namespace AbstractEngine.Core.Base
         public bool Updated;
        
         private CellData _data;
-        public CellData Data => _data;
+
+        public CellData Data
+        {
+            get
+            {
+                Updated = true;
+                return _data;
+            }
+            set 
+            { 
+                Updated = true;
+                _data = value;
+            }
+        }
         
         public Cell(Cell cell)
         {
-            Updated = cell.Updated;
+            Updated = true;
             _data = cell.Data;
         }   
         
@@ -108,7 +122,8 @@ namespace AbstractEngine.Core.Base
             var result = true;
             try
             {
-                obj = (T) Convert.ChangeType(_data.RenderObject.renderObject, typeof(T));
+                if (_data.RenderObject != null)
+                    obj = (T) Convert.ChangeType(_data.RenderObject.renderObject, typeof(T));
             }
             catch (Exception)
             {
@@ -159,7 +174,7 @@ namespace AbstractEngine.Core.Base
     {
         public object renderObject;
         public RenderObject() => renderObject = new object();
-        public RenderObject(object _renderObject) => renderObject = _renderObject;
+        public RenderObject(object renderObject) => this.renderObject = renderObject;
     }
     
     [Serializable]

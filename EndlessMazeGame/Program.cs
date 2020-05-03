@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Mime;
 using AbstractEngine.Core;
-using AbstractEngine.Core.Base;
-using ConsoleEngine;
 using EndlessMazeGame.Areas;
 using SFML.Graphics;
 using SFML.System;
@@ -20,31 +17,28 @@ namespace EndlessMazeGame
         private const int HEIGHT = 20;
         private const string TITLE = "Endless maze";
         
-        [STAThread]
         static void Main(string[] args)
         {
-            if (!args.Contains("sfml"))//Check what mode you want
+            if (!args.Contains("sfml"))
             {
-                _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, TITLE);//Init engine what you want
-                
+                _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, 24,TITLE);//Init engine what you want
                 ResourceManger.LoadResourcesForConsoleEngine(_engine.Resources);
             }
             else
             {
                 _engine = new SFMLEngine.SFMLEngine(WIDTH,HEIGHT, 25,TITLE);
-               ResourceManger.LoadResourcesForSFMLEngine(_engine.Resources);
+               ResourceManger.LoadResourcesForSfmlEngine(_engine.Resources);
             }
+
             _engine.SetBackgroundColor(Color.White);
             var menu = new MenuArea(_engine.GameGrid);//Create area
             _engine.LoadArea(menu);//Load area
             
             _engine.Run();//Run game
-
-            
         }
-        
-        
-        public static class ResourceManger
+
+
+        private static class ResourceManger
         {
             public static void LoadResourcesForConsoleEngine(Resources resources)
             {
@@ -67,7 +61,7 @@ namespace EndlessMazeGame
                 resources.RegisterResource("Bomb3", @"\");
                 resources.RegisterResource("Bomb4", '|');
             }
-            public static void LoadResourcesForSFMLEngine(Resources resources)
+            public static void LoadResourcesForSfmlEngine(Resources resources)
             {
                 Shape shape;
                 shape = new CircleShape(HEIGHT/2, 3){Rotation = 90};

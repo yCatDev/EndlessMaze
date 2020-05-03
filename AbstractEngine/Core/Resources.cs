@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using AbstractEngine.Core.Base;
 
 namespace AbstractEngine.Core
@@ -17,10 +16,7 @@ namespace AbstractEngine.Core
             {
                 if (_data.ContainsKey(name))
                     return _data[name];
-                else
-                {
-                    throw new ResourceNotFound(name);
-                }
+                throw new ResourceNotFound(name);
             }
         }
     }
@@ -28,20 +24,9 @@ namespace AbstractEngine.Core
     
     public class ResourceNotFound : Exception
     {
-        
-
-        public ResourceNotFound()
-        {
-        }
-
         public ResourceNotFound(string res) : base($"Resource '{res}' not loaded. Fatal error")
         {
             
         }
-
-        public ResourceNotFound(string res, Exception inner) : base($"Resource '{res}' not loaded. Fatal error", inner)
-        {
-        }
-        
     }
 }

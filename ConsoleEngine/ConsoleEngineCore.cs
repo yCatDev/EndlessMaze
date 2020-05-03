@@ -9,7 +9,7 @@ namespace ConsoleEngine
 {
     public class ConsoleEngine: AbstractCore
     {
-        public ConsoleEngine(int w, int h, string title) : base(w, h, title)
+        public ConsoleEngine(int w, int h, uint fontSize,string title) : base(w, h, title)
         {
             Console.CursorVisible = false;
             Console.Title = title;
@@ -28,10 +28,11 @@ namespace ConsoleEngine
             ++bufferInfo.srWindow.Bottom;
             SetConsoleScreenBufferInfoEx(stdHandle, ref bufferInfo);
             
-            SetFont(24);
+            SetFont((short) fontSize);
+            
             AppDomain.CurrentDomain.ProcessExit += (sender, eventArgs) => { SetFont(16);};
         }
-        
+
         protected override void OnRenderStart()
         {
             Console.CursorVisible = false;
@@ -39,36 +40,26 @@ namespace ConsoleEngine
 
         protected override void OnRenderObject(Cell cell, Point cellPos)
         {
+            if (!cell.Updated) return;
             Console.SetCursorPosition(cellPos.X, cellPos.Y);
             Console.ForegroundColor = cell.GetColor<ConsoleColor>();
-            Console.BackgroundColor = (ConsoleColor) _clearColor;
-            //Console.WriteLine(cellPos.ToString());
+            Console.BackgroundColor = (ConsoleColor) ClearColor;
             if (cell.GetRenderObject<char>(out var res))
                 Console.Write(res);
             else
-            {
                 Console.Write(' ');
-            }
+
+            cell.Updated = false;
         }
 
         protected override void OnRenderEnd()
         {
-            Thread waitThread = new Thread(() =>Thread.Sleep(10));
-            waitThread.Start();                    
+            var waitThread = new Thread(() => Thread.Sleep(10));
+            waitThread.Start();
             waitThread.Join();
         }
 
-        public override void DrawPrimitive(CellData data, Point cellPos)
-        {
-            GameGrid[cellPos] = new Cell(data);
-        }
-
-        public override void DrawPrimitive(RenderObject renderObject, Point cellPos)
-        {
-            GameGrid[cellPos] = new Cell(renderObject);
-        }
-
-        public override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
+        protected override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
         {
             var d = new CellData()
             {
@@ -112,7 +103,7 @@ namespace ConsoleEngine
         
         
         [StructLayout(LayoutKind.Sequential)]
-        public struct Coord
+        private struct Coord
         {
             public short X, Y;
 
@@ -123,8 +114,9 @@ namespace ConsoleEngine
             }
         }
         [StructLayout(LayoutKind.Sequential)]
-        public struct SmallRect
+        private struct SmallRect
         {
+          
             public short Left, Top, Right, Bottom;
 
             public SmallRect(short width, short height)
@@ -175,7 +167,7 @@ namespace ConsoleEngine
         private static IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
 
         [StructLayout(LayoutKind.Sequential)]
-        internal unsafe struct CONSOLE_FONT_INFO_EX
+        private unsafe struct CONSOLE_FONT_INFO_EX
         {
             internal uint cbSize;
             internal uint nFont;
@@ -185,28 +177,22 @@ namespace ConsoleEngine
             internal fixed char FaceName[LF_FACESIZE];
         }
 
-        public unsafe void SetFont(short size)
+        private unsafe void SetFont(short size)
         {
-            string fontName = "MS Gothic";
-            IntPtr hnd = GetStdHandle(STD_OUTPUT_HANDLE);
-            if (hnd != INVALID_HANDLE_VALUE) {
-                CONSOLE_FONT_INFO_EX info = new CONSOLE_FONT_INFO_EX();
-                info.cbSize = (uint) Marshal.SizeOf(info);
-                bool tt = false;
-                // First determine whether there's already a TrueType font.
-                if (GetCurrentConsoleFontEx(hnd, false, ref info)) {
-                    // Set console font to Lucida Console.
-                    CONSOLE_FONT_INFO_EX newInfo = new CONSOLE_FONT_INFO_EX();
-                    newInfo.cbSize = (uint) Marshal.SizeOf(newInfo);
-                    newInfo.FontFamily = TMPF_TRUETYPE;
-                    IntPtr ptr = new IntPtr(newInfo.FaceName);
-                    Marshal.Copy(fontName.ToCharArray(), 0, ptr, fontName.Length);
-                    // Get some settings from current font.
-                    newInfo.dwFontSize = new Coord(size, size);
-                    newInfo.FontWeight = info.FontWeight;
-                    SetCurrentConsoleFontEx(hnd, false, newInfo);
-                }
-            }
+            const string fontName = "MS Gothic";
+            var hnd = GetStdHandle(STD_OUTPUT_HANDLE);
+            if (hnd == INVALID_HANDLE_VALUE) return;
+            var info = new CONSOLE_FONT_INFO_EX();
+            info.cbSize = (uint) Marshal.SizeOf(info);
+            if (!GetCurrentConsoleFontEx(hnd, false, ref info)) return;
+            var newInfo = new CONSOLE_FONT_INFO_EX();
+            newInfo.cbSize = (uint) Marshal.SizeOf(newInfo);
+            newInfo.FontFamily = TMPF_TRUETYPE;
+            var ptr = new IntPtr(newInfo.FaceName);
+            Marshal.Copy(fontName.ToCharArray(), 0, ptr, fontName.Length);
+            newInfo.dwFontSize = new Coord(size, size);
+            newInfo.FontWeight = info.FontWeight;
+            SetCurrentConsoleFontEx(hnd, false, newInfo);
         }
         
         #endregion

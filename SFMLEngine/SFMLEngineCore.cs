@@ -28,7 +28,7 @@ namespace SFMLEngine
         protected override void OnRenderStart()
         {
             _window.DispatchEvents();
-            _window.Clear(Colors[(int)_clearColor]);
+            _window.Clear(Colors[(int)ClearColor]);
         }
 
         protected override void OnRenderObject(Cell cell, Point cellPos)
@@ -53,17 +53,8 @@ namespace SFMLEngine
             _window.Display();
         }
 
-        public override void DrawPrimitive(CellData data, Point cellPos)
-        {
-            GameGrid[cellPos] = new Cell(data); 
-        }
 
-        public override void DrawPrimitive(RenderObject renderObject, Point cellPos)
-        {
-            GameGrid[cellPos] = new Cell(renderObject); 
-        }
-
-        public override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
+        protected override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
         {
             var text = new Text(c.ToString(), _font, 24);
             var d = new CellData()

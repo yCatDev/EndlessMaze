@@ -10,18 +10,18 @@ namespace EndlessMazeGame.Areas
         private Maze.Maze _maze;
         private Player _player;
         private SaveSystem _saveSystem;
-        private bool c = false;
+        private bool _continue = false;
         private Stopwatch _clock;
         
-        public GameArea(bool c, GameGrid gameGrid) : base(gameGrid)
+        public GameArea(bool @continue, GameGrid gameGrid) : base(gameGrid)
         {
-            this.c = c;
+            this._continue = @continue;
         }
 
         public override void Init()
         {
             _saveSystem = new SaveSystem();
-            if (!c)
+            if (!_continue)
             {
                 _maze = new Maze.Maze(this);
                 _maze.CreateMaze(out var player);
@@ -30,8 +30,6 @@ namespace EndlessMazeGame.Areas
                 _player.SetTreasures(_maze.TreasuresNum);
                 
                 _saveSystem.SaveFile.LevelSaveData.SaveLevel(Grid);
-                
-                
             }
             else
             {

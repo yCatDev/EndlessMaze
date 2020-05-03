@@ -19,23 +19,26 @@ namespace EndlessMazeGame.Areas
 
         public override void Init()
         {
-            Thread thread = new Thread(new ThreadStart(AnimatedClear));
+            var save = new SaveSystem();
+            save.ClearLevel();
+            
+            var thread = new Thread(AnimatedClear);
             thread.Start();
         }
 
         private void AnimatedClear()
         {
-            List<int> a = new List<int>();
-            List<int> b = new List<int>();
+            var a = new List<int>();
+            var b = new List<int>();
             
-            for (int i = 0; i < Grid.Heigth; i+=2)
+            for (var i = 0; i < Grid.Heigth; i+=2)
                 a.Add(i);
-            for (int i = 1; i < Grid.Heigth+1; i+=2)
+            for (var i = 1; i < Grid.Heigth+1; i+=2)
                 b.Add(i);
 
-            for (int i = 0; i < a.Count; i++)
+            for (var i = 0; i < a.Count; i++)
             {
-                for (int j = 0; j < Grid.Width; j++)
+                for (var j = 0; j < Grid.Width; j++)
                 {
                     Grid.MakeCellEmpty(j,a[i]);
                     Grid.MakeCellEmpty((Grid.Width-1)-j,b[i]);
@@ -55,7 +58,6 @@ namespace EndlessMazeGame.Areas
 
         public override void Update()
         {
-         
             if (_animEnd&&InputManger.OnKeyDown(VirtualKeys.Escape))
                 Grid.Core.LoadArea(new MenuArea(Grid));
         }

@@ -7,7 +7,8 @@ namespace AbstractEngine.Core.Base
     {
         private List<Entity> _entities;
         public GameGrid Grid { get; }
-        public Area(GameGrid gameGrid)
+
+        protected Area(GameGrid gameGrid)
         {
             _entities = new List<Entity>();
             Grid = gameGrid;
@@ -16,8 +17,15 @@ namespace AbstractEngine.Core.Base
 
 
 
-        public abstract void Init();
-        public abstract void Update();
+        public virtual void Init()
+        {
+            
+        }
+
+        public virtual void Update()
+        {
+            
+        }
 
         public void UpdateEntities()
         {

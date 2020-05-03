@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Threading;
 using AbstractEngine.Core.Base;
 
 namespace AbstractEngine.Core
 {
     public abstract class AbstractCore
     {
-        private GameGrid _grid;
+        private readonly GameGrid _grid;
         
         public GameGrid GameGrid => _grid;
         private Area _currentArea, _tmpArea;
-        private Stopwatch _delta;
-        public Resources Resources;
+        private readonly Stopwatch _delta;
+        public readonly Resources Resources;
         public readonly int WindowWidth, WindowHeight;
         public readonly string WindowTitle;
         private bool _clearScreenOnNextArea = true;
-        protected Color _clearColor;
+        protected Color ClearColor;
 
         protected AbstractCore(int w, int h, string title)
         {
@@ -38,15 +37,14 @@ namespace AbstractEngine.Core
         }
 
 
-        public void SetBackgroundColor(Color color) => _clearColor = color;
+        public void SetBackgroundColor(Color color) => ClearColor = color;
 
         public void Run()    
         {
             _delta.Start();
             while (true)
             {
-                try
-                {
+                
                     if (!(_delta.Elapsed.TotalSeconds > 1f / 60)) continue;
                     if (_tmpArea != null)
                     {
@@ -63,18 +61,7 @@ namespace AbstractEngine.Core
                     
 
                     _delta.Restart();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine(e.StackTrace);
-                    Console.WriteLine(e.Data);
-                    Thread.Sleep(10000);
-                    Console.ReadKey();
-                    
-                    break;
-                }
+              
             }
         }
 
@@ -86,18 +73,18 @@ namespace AbstractEngine.Core
             for (var i1 = 0; i1 < all.GetLength(1); i1++)
             {
                 var cell = all[i0, i1];
-                OnRenderObject(cell, new Point(i0,i1));
+                
+                OnRenderObject(cell, new Point(i0, i1));
+                
             }
         }
+        
         public void DrawText(string text, Point position, Color textColor = Color.White)
         {
             var cs = text.ToCharArray();
-            Point nextPos = position;
-            for (var i = 0; i < cs.Length; i++)
+            var nextPos = position;
+            foreach (var c in cs)
             {
-                var c = cs[i];
-                
-                
                 OnDrawTextSymbol(c, nextPos, textColor);
                 nextPos.X++;
             }
@@ -113,13 +100,29 @@ namespace AbstractEngine.Core
             textStartPos = new Point(t.X-1, y);
             DrawText(text, t,textColor);
         }
-        
-        protected abstract void OnRenderStart();
+
+        protected virtual void OnRenderStart()
+        {
+            
+        }
         protected abstract void OnRenderObject(Cell cell, Point cellPos);
-        protected abstract void OnRenderEnd();
-        public abstract void DrawPrimitive(CellData data, Point cellPos);
-        public abstract void DrawPrimitive(RenderObject renderObject, Point cellPos);
-        public abstract void OnDrawTextSymbol(char c, Point nextPos, Color textColor);
+
+        protected virtual void OnRenderEnd()
+        {
+            
+        }
+
+        public void DrawPrimitive(CellData data, Point cellPos)
+        {
+            DrawPrimitive(data.RenderObject, cellPos);
+        }
+
+        public void DrawPrimitive(RenderObject renderObject, Point cellPos)
+        {
+            GameGrid[cellPos] = new Cell(renderObject);
+        }
+
+        protected abstract void OnDrawTextSymbol(char c, Point nextPos, Color textColor);
 
 
         #region WinAPI_Console_Hide

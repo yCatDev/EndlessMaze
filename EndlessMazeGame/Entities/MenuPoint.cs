@@ -8,6 +8,7 @@ namespace EndlessMazeGame.Entities
     {
         private Point _menuPlay, _menuContinue, _menuExit;
         private int _index = 0;
+        private bool _canContinue = false;
         
         public void SetMenuPoints(Point play, Point @continue, Point exit)
         {
@@ -16,7 +17,7 @@ namespace EndlessMazeGame.Entities
             _menuExit = exit;
         }
 
-        public override void Start()
+        protected override void Start()
         {
             SetNewGraphics("MenuPointer", Color.Black);
         }
@@ -51,7 +52,8 @@ namespace EndlessMazeGame.Entities
                         Area.Grid.Core.LoadArea(new GameArea(false, Area.Grid.Core.GameGrid));
                         break;
                     case 1:
-                        Area.Grid.Core.LoadArea(new GameArea(true, Area.Grid.Core.GameGrid));
+                        if (_canContinue)
+                            Area.Grid.Core.LoadArea(new GameArea(true, Area.Grid.Core.GameGrid));
                         break;
                     case 2:
                         Environment.Exit(0);
@@ -60,6 +62,8 @@ namespace EndlessMazeGame.Entities
             }
         }
 
+        public void EnableContinue() => _canContinue = true;
+        
         private void UpdatePosition()
         {
             switch (_index)

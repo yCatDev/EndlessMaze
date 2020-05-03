@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Newtonsoft.Json;
-using System.Xml;
 using AbstractEngine.Core.Base;
-using Newtonsoft.Json.Linq;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace EndlessMazeGame
@@ -16,17 +12,25 @@ namespace EndlessMazeGame
         public SaveSystem()
         {
             if (!File.Exists("save.json"))
+                CreateNewFile();
+            try
             {
-                File.Create("save.json").Dispose();
+                var sr = new StreamReader("save.json");
                 SaveFile = new SaveFile();
-                Save();
+                SaveFile = JsonConvert.DeserializeObject<SaveFile>(sr.ReadToEnd());
+                sr.Close();
             }
+            catch
+            {
+                CreateNewFile();
+            }
+        }
 
-            
-            var sr = new StreamReader("save.json");
+        private void CreateNewFile()
+        {
+            File.Create("save.json").Dispose();
             SaveFile = new SaveFile();
-            SaveFile = JsonConvert.DeserializeObject<SaveFile>(sr.ReadToEnd());
-            sr.Close();
+            Save();
         }
         
         public void Save()
@@ -35,9 +39,14 @@ namespace EndlessMazeGame
            sw.Write(JsonConvert.SerializeObject(SaveFile, Formatting.Indented));
            sw.Flush();
            sw.Close();
-           
         }
-        
+
+        public void ClearLevel()
+        {
+            SaveFile.LevelSaveData.ClearLevel();
+            Save();
+        }
+
     }
 
     
@@ -62,9 +71,7 @@ namespace EndlessMazeGame
 
         public void SaveLevel(GameGrid grid)
         {
-            BlockPositions.Clear();
-            TreasurePositions.Clear();
-            StonePositions.Clear();
+            ClearLevel();
             var cells = grid.SelectAll();
             for (var i = 0; i < cells.GetLength(0); i++)
             for (var j = 0; j < cells.GetLength(1); j++)
@@ -81,12 +88,21 @@ namespace EndlessMazeGame
             }
         }
 
+        public bool IsEmpty() =>
+            BlockPositions.Count == 0 && TreasurePositions.Count == 0 && StonePositions.Count == 0;
+        
         public LevelSaveData()
         {
             BlockPositions = new List<PointData>();
             TreasurePositions = new List<PointData>();
             StonePositions = new List<PointData>();
+        }
 
+        public void ClearLevel()
+        {
+            BlockPositions.Clear();
+            TreasurePositions.Clear();
+            StonePositions.Clear();
         }
         
         public class PointData

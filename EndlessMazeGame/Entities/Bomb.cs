@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Timers;
 using AbstractEngine.Core.Base;
 
@@ -10,11 +8,11 @@ namespace EndlessMazeGame.Entities
     {
         private string[] _bombAnim;
         private int _animInd = 0;
-        private int TicksToBoom = 3;
+        private int _ticksToBoom = 3;
         private Timer _animTimer;
         public bool Exploded = false;
-        
-        public override void Start()
+
+        protected override void Start()
         {
             _bombAnim = new[] {"Bomb1", "Bomb2", "Bomb3", "Bomb4"};
             _animTimer = new Timer
@@ -28,7 +26,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
-            if (TicksToBoom < 0)
+            if (_ticksToBoom < 0)
             {
                 Boom();
             }
@@ -100,11 +98,11 @@ namespace EndlessMazeGame.Entities
         {
             SetNewGraphics(_bombAnim[_animInd], Color.Red);
             _animInd++;
-            if (_animInd > 3)
-            {
-                _animInd = 0;
-                TicksToBoom--;
-            }
+            
+            if (_animInd <= 3) return;
+            
+            _animInd = 0;
+            _ticksToBoom--;
         }
     }
 }

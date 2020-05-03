@@ -19,51 +19,51 @@ namespace EndlessMazeGame.Areas
             var e = Grid.Core;
             _saveSystem = new SaveSystem();
             
-            var MenuUL = new CellData()
+            var menuUl = new CellData()
             {
                 RenderObject = e.Resources["MenuBorderUL"],
                 Color = Color.Black
             };
-            var MenuUR = new CellData()
+            var menuUr = new CellData()
             {
                 RenderObject = e.Resources["MenuBorderUR"],
                 Color = Color.Black
             };
-            var MenuDL= new CellData()
+            var menuDl= new CellData()
             {
                 RenderObject = e.Resources["MenuBorderDL"],
                 Color = Color.Black
             }; 
-            var MenuDR= new CellData()
+            var menuDr= new CellData()
             {
                 RenderObject = e.Resources["MenuBorderDR"],
                 Color = Color.Black
             }; 
-            var MenuV= new CellData()
+            var menuV= new CellData()
             {
                 RenderObject = e.Resources["MenuBorderV"],
                 Color = Color.Black
             };
-            var MenuH= new CellData()
+            var menuH= new CellData()
             {
                 RenderObject = e.Resources["MenuBorderH"],
                 Color = Color.Black
             };
             
-            e.DrawPrimitive(MenuUL, Point.Zero);
-            e.DrawPrimitive(MenuUR, new Point(e.WindowWidth-1, 0));
-            e.DrawPrimitive(MenuDL, new Point(0, e.WindowHeight-1));
-            e.DrawPrimitive(MenuDR, new Point(e.WindowWidth-1, e.WindowHeight-1));
+            e.DrawPrimitive(menuUl, Point.Zero);
+            e.DrawPrimitive(menuUr, new Point(e.WindowWidth-1, 0));
+            e.DrawPrimitive(menuDl, new Point(0, e.WindowHeight-1));
+            e.DrawPrimitive(menuDr, new Point(e.WindowWidth-1, e.WindowHeight-1));
 
-            for (int i = 1; i < e.WindowWidth - 1; i++)
+            for (var i = 1; i < e.WindowWidth - 1; i++)
             {
-                e.DrawPrimitive(MenuH, new Point(i, 0));
-                e.DrawPrimitive(MenuH, new Point(i, e.WindowHeight - 1));
+                e.DrawPrimitive(menuH, new Point(i, 0));
+                e.DrawPrimitive(menuH, new Point(i, e.WindowHeight - 1));
             }
-            for (int i = 1; i < e.WindowHeight - 1; i++)
+            for (var i = 1; i < e.WindowHeight - 1; i++)
             {
-                e.DrawPrimitive(MenuV, new Point(0, i));
-                e.DrawPrimitive(MenuV, new Point(e.WindowWidth-1, i));
+                e.DrawPrimitive(menuV, new Point(0, i));
+                e.DrawPrimitive(menuV, new Point(e.WindowWidth-1, i));
             }
             
             e.DrawTextInCenter(e.WindowTitle, 2, 4, Color.Black);
@@ -78,13 +78,10 @@ namespace EndlessMazeGame.Areas
             var menuPoint = Entity.CreateEntity<MenuPoint>("MenuPoint", playPoint, this);
             menuPoint.SetMenuPoints(playPoint, continuePoint, exitPoint);
             
-        }
-
-        
-        
-        public override void Update()
-        {
+            if (!_saveSystem.SaveFile.LevelSaveData.IsEmpty())
+                menuPoint.EnableContinue();
             
         }
+        
     }
 }
