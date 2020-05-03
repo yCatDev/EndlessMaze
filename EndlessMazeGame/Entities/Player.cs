@@ -26,6 +26,7 @@ namespace EndlessMazeGame.Entities
 
         public override void Update()
         {
+            
             var e = Area.Grid.Core;
 
             if (_bomb!=null&&_bomb.Exploded)
@@ -124,7 +125,7 @@ namespace EndlessMazeGame.Entities
         {
             var nextCell = Area.Grid[to];
             var o = nextCell.GetName();
-            if (o.Contains("Block") || o.Contains("Bomb")|| o.Contains("Stone"))
+            if (o.Contains("Block") || o.Contains("Bomb")|| o.Contains("Stone") || o.Contains("ExpWave"))
                 return;
             if (o.Contains("Treasure"))
             {

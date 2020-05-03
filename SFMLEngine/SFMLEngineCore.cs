@@ -20,7 +20,7 @@ namespace SFMLEngine
             _font = new Font("arial.ttf");
             ShowWindow(GetConsoleWindow(), SW_HIDE);
             _window.Closed += (sender, args) => { Environment.Exit(0);};
-            _window.SetActive(false); //Workaround for threading
+            
         }
 
 
@@ -28,6 +28,7 @@ namespace SFMLEngine
 
         protected override void OnRenderStart()
         {
+            _window.SetActive(false); //Workaround for threading
             _window.DispatchEvents();
             _window.Clear(Colors[(int)ClearColor]);
         }
@@ -51,13 +52,14 @@ namespace SFMLEngine
 
         protected override void OnRenderEnd()
         {
+            _window.SetActive(true);
             _window.Display();
         }
 
 
         protected override void OnDrawTextSymbol(char c, Point nextPos, Color textColor)
         {
-            var text = new Text(c.ToString(), _font, 24);
+            var text = new Text(c.ToString(), _font, 25);
             var d = new CellData()
             {
                 RenderObject = new RenderObject(text),

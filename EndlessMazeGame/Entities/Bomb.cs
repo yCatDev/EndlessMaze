@@ -76,7 +76,7 @@ namespace EndlessMazeGame.Entities
             {
                 if (Area.Grid[point].IsName("Player"))
                     isPlayerInZone = true;
-                CreateEntity<BombWave>("ExplosionWave", point, Area);
+                CreateEntity<BombWave>("ExpWave", point, Area);
             }
             
             if (isPlayerInZone)
