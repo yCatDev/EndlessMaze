@@ -19,7 +19,7 @@ namespace EndlessMazeGame
         
         static void Main(string[] args)
         {
-            if (args.Contains("sfml"))
+            if (!args.Contains("sfml"))
             {
                 _engine = new ConsoleEngine.ConsoleEngine(WIDTH, HEIGHT, 24,TITLE);//Init engine what you want
                 ResourceManger.LoadResourcesForConsoleEngine(_engine.Resources);

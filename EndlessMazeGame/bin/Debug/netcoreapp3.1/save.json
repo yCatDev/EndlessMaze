@@ -1,10 +1,10 @@
 {
-  "TimeInMaze": 100145,
+  "TimeInMaze": 119156,
   "LevelSaveData": {
     "PlayerPosition": {
       "Point": {
-        "X": 7,
-        "Y": 13
+        "X": 25,
+        "Y": 3
       }
     },
     "TreasurePositions": [],
