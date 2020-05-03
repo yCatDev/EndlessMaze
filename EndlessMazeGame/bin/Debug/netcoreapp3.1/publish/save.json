@@ -1,0 +1,9 @@
+{
+  "TimeInMaze": 0,
+  "LevelSaveData": {
+    "PlayerPosition": null,
+    "TreasurePositions": [],
+    "BlockPositions": [],
+    "StonePositions": []
+  }
+}
