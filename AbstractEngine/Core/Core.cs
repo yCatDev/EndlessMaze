@@ -23,7 +23,6 @@ namespace AbstractEngine.Core
             _grid = new GameGrid(w,h, this);
             _delta = new Stopwatch();
             Resources = new Resources();
-            InputManger.RegisterInput();
             WindowHeight = h;
             WindowWidth = w;
             WindowTitle = title;
@@ -53,6 +52,7 @@ namespace AbstractEngine.Core
                         _tmpArea = null;
                         _currentArea.Init();
                     }
+                    InputManger.WaitForUp();
                     _currentArea?.Update();
                     _currentArea?.UpdateEntities();
                     OnRenderStart();

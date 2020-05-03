@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using AbstractEngine.Core;
 using EndlessMazeGame.Areas;
 using SFML.Graphics;
@@ -35,8 +36,9 @@ namespace EndlessMazeGame
             _engine.LoadArea(menu);//Load area
             
             _engine.Run();//Run game
+           
         }
-
+       
 
         private static class ResourceManger
         {
